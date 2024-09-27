@@ -43,7 +43,7 @@
     "@million/lint": "1.0.0-rc.84",
     "@nexel/cosmos": "workspace:*",
     "@nexel/nextjs": "workspace:*",
-    "@nexel/prisma": "workspace:*",
+    "@celestia/prisma": "workspace:*",
     "@next/eslint-plugin-next": "^14.2.13",
     "@next/third-parties": "^14.2.13",
     "@primer/react": "^36.27.0",

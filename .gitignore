@@ -46,9 +46,9 @@ bun.lockb
 /packages/gql/@schemas
 /packages/gql/schema/graphql.schema.ts
 /servers/gql/schema.gql
-/apps/*/public/fallback-*.js
-/apps/*/public/sw*
-/apps/*/public/workbox-*
+**/public/fallback-*.js
+**/public/sw*
+**/public/workbox-*
 
 # misc
 .DS_Store

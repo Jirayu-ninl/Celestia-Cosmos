@@ -1,0 +1,484 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base { */
+:root {
+  --background: 48 100% 98%;
+  --background-deep: 217 100% 100%;
+  --foreground: 217 0% 0%;
+
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  /* #FFC900 */
+  /* --primary: 47 100% 50%;
+  --primary-foreground: 47 100% 50%; */
+
+  /* #ff3b3b */
+  --primary: 0 100% 62%;
+  --primary-foreground: 0 100% 62%;
+
+  /* #51FBDE */
+  --secondary: 170 100% 43%;
+  --secondary-foreground: 170 100% 43%;
+
+  /* #7341FF */
+  --tertiary: 256 100% 63%;
+  --tertiary-foreground: 256 100% 63%;
+
+  /* #ff3b3b */
+  --quaternary: 0 100% 62%;
+  --quaternary-foreground: 0 100% 62%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 10%;
+  --background-deep: 0 0% 0%;
+  --foreground: 217 0% 100%;
+
+  --background-start-rgb: 26, 26, 26;
+  --background-end-rgb: 0, 0, 0;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 47 100% 50%;
+  --primary-foreground: 47 100% 50%;
+
+  /* #51FBDE */
+  --secondary: 170 96% 65%;
+  --secondary-foreground: 170 96% 65%;
+
+  --tertiary: 256 100% 63%;
+  --tertiary-foreground: 256 100% 63%;
+
+  --quaternary: 0 100% 62%;
+  --quaternary-foreground: 0 100% 62%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  @apply m-0 border-border p-0;
+}
+*:focus {
+  outline: 0 !important;
+}
+
+*:-moz-focusring {
+  outline: 0 !important;
+}
+
+*::-webkit-scrollbar:horizontal {
+  @apply hidden;
+}
+
+*::-webkit-scrollbar-track {
+  @apply rounded-[0.75rem] bg-background;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  @apply rounded-[0.75rem] bg-primary;
+}
+::selection {
+  @apply bg-primary text-background;
+}
+::-moz-selection {
+  @apply bg-primary text-background;
+}
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  font-family: var(--font-inter), var(--font-prompt);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
+  text-rendering: optimizeLegibility;
+  @apply bg-background text-base text-foreground antialiased;
+}
+a,
+a:hover {
+  @apply no-underline;
+}
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+  text-decoration: none;
+  @apply text-inherit no-underline;
+}
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+.h-svh {
+  height: 100vh;
+  height: 100svh;
+}
+
+.h-dvh {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.h-lvh {
+  height: 100vh;
+  height: 100lvh;
+}
+
+.w-svw {
+  width: 100vw;
+  width: 100svw;
+}
+
+.w-dvw {
+  width: 100vw;
+  width: 100dvw;
+}
+
+.w-lvw {
+  width: 100vw;
+  width: 100lvw;
+}
+canvas {
+  width: 100%;
+  height: 100vh;
+}
+/* } */
+
+.TH {
+  font-family: 'Prompt' !important;
+}
+
+/* Utils */
+
+.NSB::-webkit-scrollbar {
+  display: none;
+}
+
+.SSB::-webkit-scrollbar {
+  width: 2px;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 2rem;
+  max-width: 1400px;
+}
+
+/* *! Animate */
+
+.Anim {
+  @apply transition duration-300 xl:hover:duration-200;
+}
+
+.Anim-1 {
+  @apply transition duration-500 xl:hover:duration-300;
+}
+
+.Anim-2 {
+  @apply transition duration-700 xl:hover:duration-500;
+}
+
+.AnimScale {
+  @apply hover:z-10 xl:hover:scale-150;
+}
+
+.AnimScale-105 {
+  @apply hover:z-10 xl:hover:scale-105;
+}
+
+.AnimShadow-el {
+  @apply xl:hover:shadow-[0_35px_60px_15px_rgba(0,0,0,1)];
+}
+
+.AnimScale-sm {
+  @apply xl:hover:scale-110;
+}
+
+.AnimOpacity-20 {
+  @apply xl:opacity-20 xl:hover:opacity-100;
+}
+
+.AnimOpacity-40 {
+  @apply xl:opacity-40 xl:hover:opacity-100;
+}
+
+.AnimOpacity-60 {
+  @apply xl:opacity-60 xl:hover:opacity-100;
+}
+
+.AnimOpacity-80 {
+  @apply xl:opacity-80 xl:hover:opacity-100;
+}
+
+.AnimTranslate-10 {
+  @apply xl:hover:-translate-x-2.5 xl:hover:-translate-y-2.5;
+}
+
+.AnimRotate-1 {
+  @apply xl:hover:-rotate-1;
+}
+
+.AnimTranslate-4 {
+  @apply xl:hover:-translate-x-1 xl:hover:-translate-y-1;
+}
+
+.-AnimTranslate-4 {
+  @apply xl:hover:translate-x-1 xl:hover:translate-y-1;
+}
+
+.AnimSaturate-0 {
+  @apply xl:saturate-0 xl:hover:saturate-100;
+}
+
+.AnimUnderline:before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s transform;
+  z-index: 90;
+  @apply hidden bg-primary md:block;
+}
+
+.AnimUnderline:hover:before {
+  opacity: 1;
+  transition-duration: 250ms;
+  cursor: none;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: 0.5s transform;
+}
+
+.AnimUnderline-FirstChild > div:before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s transform;
+  z-index: 90;
+  @apply hidden bg-primary md:block;
+}
+
+.AnimUnderline-FirstChild:hover > div:before {
+  opacity: 1;
+  transition-duration: 250ms;
+  cursor: none;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: 0.5s transform;
+}
+
+.AnimTextStrokeWhite {
+  -webkit-text-stroke: 2px #ffffff !important;
+  color: transparent;
+}
+
+.AnimTextStrokeBlack {
+  -webkit-text-stroke: 2px #1a1a1a;
+  color: transparent;
+}
+
+.hideLastChild-Parent > .isChild:last-child {
+  @apply hidden;
+}
+
+/* *! Text */
+
+.textHoverStroke > h1:hover {
+  -webkit-text-stroke: 2px #000;
+  color: #ff3b3b !important;
+}
+
+.textHoverStroke-dark > h1:hover {
+  -webkit-text-stroke: 2px #fff;
+  color: #ffc900 !important;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px #000;
+  @apply text-transparent;
+}
+
+.text-outline-dark {
+  -webkit-text-stroke: 1px #fff;
+  @apply text-transparent;
+}
+
+/* .bullet-sm {
+  @apply 
+} */
+
+.bullet-sm:before {
+  content: '';
+  @apply h-1 w-1 rounded-full;
+}
+
+@media (min-width: 768px) {
+  .text-outline {
+    -webkit-text-stroke: 2px #000;
+  }
+  .text-outline-dark {
+    -webkit-text-stroke: 2px #fff;
+  }
+}
+
+/* *! Element */
+
+.Card-40 {
+  @apply rounded-md bg-foreground/40 backdrop-blur-md;
+}
+
+.Card-20 {
+  @apply rounded-md bg-foreground/20 backdrop-blur-md;
+}
+
+.Border-40 {
+  @apply border border-foreground/40;
+}
+
+.Border-40:focus,
+.Border-40:hover,
+.Border-40:active {
+  @apply border-foreground/60;
+}
+
+/* *! Form */
+
+.Form input {
+  @apply bg-foreground/10 px-2 py-1;
+}
+
+.Form input::placeholder {
+  @apply text-foreground/40;
+}
+
+.Form input:-webkit-autofill,
+.Form input:-webkit-autofill:focus,
+.Form input:-webkit-autofill:hover,
+.Form input:-webkit-autofill:active {
+  /* transition: background-color 5000s ease-in-out 0s; */
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+  -webkit-text-fill-color: black !important;
+  @apply bg-transparent;
+}
+
+.Form-checkbox {
+  @apply absolute z-10 opacity-0;
+}
+
+.Form-checkbox + label {
+  @apply relative cursor-pointer p-0;
+}
+
+.Form-checkbox + label:before {
+  content: '';
+  @apply Border-40 mr-3 inline-block h-3 w-3 rounded-sm bg-foreground/20 align-top;
+}
+
+.Form-checkbox:hover + label:before {
+  @apply bg-primary/60;
+}
+
+.Form-checkbox:checked + label:before {
+  @apply bg-primary;
+}
+
+.Form-checkbox:disabled + label {
+  @apply cursor-auto text-foreground/30;
+}
+
+.Form-checkbox:disabled + label:before {
+  @apply bg-foreground/10;
+}
+
+.Form-checkbox:checked + label:after {
+  content: '';
+  box-shadow:
+    2px 0 0 white,
+    4px 0 0 white,
+    4px -2px 0 white,
+    4px -4px 0 white,
+    4px -6px 0 white,
+    4px -8px 0 white;
+  @apply absolute left-[2px] top-1 h-1 w-1 rotate-45 bg-foreground;
+}
+
+/* *! NavBar */
+
+.navMenuItem:hover > div > p:first-child {
+  opacity: 0.6;
+}

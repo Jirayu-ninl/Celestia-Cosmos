@@ -1,0 +1,9 @@
+[submodule "packages/prisma"]
+	path = packages/prisma
+	url = https://github.com/Jirayu-ninl/Celestia-Prisma.git
+[submodule "packages/nextjs"]
+	path = packages/nextjs
+	url = https://github.com/Nexel-Lab/nextjs.git
+[submodule "packages/cosmos"]
+	path = packages/cosmos
+	url = https://github.com/Nexel-Lab/cosmos.git

@@ -1,0 +1,4 @@
+[alias]
+    undo = "reset --soft HEAD^"
+    up = "!f() { git add . && git commit -m \"$1\"; }; f"
+    upp = "!f() { git add . && git commit -m \"$1\" && git push -u origin main; }; f"

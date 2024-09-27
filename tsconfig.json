@@ -1,0 +1,97 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@aurora/*": [
+        "aurora/*"
+      ],
+      "@aurora": [
+        "aurora"
+      ],
+      "@app": [
+        "src/app"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@config": [
+        "global/config"
+      ],
+      "@routes": [
+        "global/config/routes.ts"
+      ],
+      "@env": [
+        "global/env.mjs"
+      ],
+      "@constants": [
+        "global/constants"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@backend": [
+        "backend"
+      ],
+      "@backend/*": [
+        "backend/*"
+      ],
+      "@database": [
+        "backend/database"
+      ],
+      "@trpc": [
+        "backend/trpc/client"
+      ],
+      "@types": [
+        "types"
+      ],
+      "public/*": [
+        "public/*"
+      ]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ],
+    "target": "ES2017"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

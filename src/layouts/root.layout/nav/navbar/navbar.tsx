@@ -69,12 +69,7 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
               onTap={() => mouseX.set(Infinity)}
               onMouseLeave={() => mouseX.set(Infinity)}
             >
-              <motion.div
-                initial={{ y: 50 }}
-                animate={{ y: 0 }}
-                exit={{ y: 50 }}
-                className='flex h-full min-w-14 items-center rounded-l-md bg-black/[0.07] shadow-md backdrop-blur-md dark:bg-white/[0.07]'
-              >
+              <div className='flex h-full min-w-14 items-center rounded-l-md bg-black/[0.07] shadow-md backdrop-blur-md dark:bg-white/[0.07]'>
                 <Section.Logo
                   _setCursor={_setCursor}
                   _onToggleModal={_onToggleModal}
@@ -85,13 +80,8 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
                   _onClearNavAction={_onClearNavAction}
                   mouseX={mouseX}
                 />
-              </motion.div>
-              <motion.div
-                initial={{ y: 50 }}
-                animate={{ y: 0 }}
-                exit={{ y: 50 }}
-                className='flex grow items-center justify-end rounded-r-md border border-foreground/[0.07] px-4 shadow-md backdrop-blur-md'
-              >
+              </div>
+              <div className='flex grow items-center justify-end rounded-r-md border border-foreground/[0.07] px-4 shadow-md backdrop-blur-md'>
                 <Section.Shortcut
                   _navAction={_navAction}
                   _setCursor={_setCursor}
@@ -99,7 +89,7 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
                   _onToggleModal={_onToggleModal}
                   mouseX={mouseX}
                 />
-              </motion.div>
+              </div>
               <UserModule
                 session={session}
                 _onToggleNavAction={_onToggleNavAction}

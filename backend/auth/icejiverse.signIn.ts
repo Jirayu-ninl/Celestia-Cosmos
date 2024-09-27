@@ -1,7 +1,7 @@
 'use server'
 
 import { uuidv7 } from 'uuidv7'
-import { prisma } from '@nexel/prisma'
+import { prisma } from '@backend/database'
 import { CredentialsSignIn } from '@nexel/nextjs/libs/auth/credentials'
 import { getErrorMessage } from '@nexel/nextjs/utils/server/error'
 import { ErrorHandler } from '../services/monitoring'

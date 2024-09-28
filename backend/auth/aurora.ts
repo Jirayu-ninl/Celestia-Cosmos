@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { NextAuthOptions, DefaultSession, DefaultUser } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { getServerSession } from 'next-auth'
-import type { NextAuthOptions, DefaultSession } from 'next-auth'
 
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
@@ -11,9 +11,18 @@ import { env } from '@env'
 import { prisma } from '../database'
 
 declare module 'next-auth' {
+  interface User extends DefaultUser {
+    id: string
+    username: string
+    role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'
+    plan: 'FREE' | 'PLUS' | 'PRO' | 'ELITE'
+    balance: number
+    metadata: any
+  }
   interface Session extends DefaultSession {
     user: {
       id: string
+      username: string
       role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'
       plan: 'FREE' | 'PLUS' | 'PRO' | 'ELITE'
       balance: number
@@ -46,12 +55,22 @@ export const authOptions: NextAuthOptions | { adapter: any } = {
   //   },
   // },
   callbacks: {
-    session: ({ session, user }: any) => {
+    async signIn({ user, profile }) {
+      if (!profile || !profile.email) {
+        console.error('Error updating user: no profile email')
+        return false
+      }
+      user.username = profile.email.split('@')[0]
+      if (!profile.name) user.name = profile.email.split('@')[0]
+      return true
+    },
+    session: ({ session, user }) => {
       return {
         ...session,
         user: {
           ...session.user,
           id: user.id,
+          username: user.username,
           role: user.role,
           plan: user.plan,
           balance: user.balance,

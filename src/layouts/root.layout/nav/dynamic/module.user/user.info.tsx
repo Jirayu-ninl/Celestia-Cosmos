@@ -1,5 +1,4 @@
 import type { Session } from '@types'
-import { startCase } from 'lodash-es'
 import { NAV_ACTION, CURSOR } from '@/store'
 import { Image } from '@components'
 
@@ -15,15 +14,20 @@ export const UserInfo: React.FC<UserInfoProps> = ({
   _onToggleNavAction,
   _setCursor,
 }) => {
-  const username = session.user.name
-    ? session.user.name.length > 8
-      ? session.user.name?.slice(0, 8) + '.'
+  const name =
+    session.user.name.length > 8
+      ? session.user.name.slice(0, 8) + '.'
       : session.user.name
-    : 'My profile'
+
+  const username =
+    session.user.username.length > 8
+      ? session.user.username.slice(0, 8) + '.'
+      : session.user.username
+
   return (
     <>
       <div
-        className='h-full cursor-pointer py-1.5 px-4'
+        className='h-full cursor-pointer px-4 py-1.5'
         style={{ margin: '0 0 0 -8px' }}
         onClick={() => {
           _onToggleNavAction(NAV_ACTION.USER)
@@ -38,11 +42,9 @@ export const UserInfo: React.FC<UserInfoProps> = ({
               unoptimized
             />
           </div>
-          <div className='grow pl-2'>
-            <p className='text-sm font-bold'>{username}</p>
-            <p className='-mt-px text-xs opacity-60'>
-              {startCase(session.user.role)}
-            </p>
+          <div className='grow pl-2 whitespace-nowrap'>
+            <p className='text-sm font-bold'>{name}</p>
+            <p className='-mt-px text-xs opacity-60'>@{username}</p>
           </div>
         </div>
       </div>

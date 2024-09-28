@@ -1,11 +1,12 @@
 import type { Session, Providers } from '@types'
-import { useMemo, useEffect } from 'react'
+import { useMemo, memo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { startCase } from 'lodash-es'
 import { NAV_ACTION } from '@/store'
 import { useLockedBody } from '@nexel/nextjs/libs/hooks/layouts'
 import { Settings } from './action.settings'
 import { User } from './action.user'
+import { Portal } from './action.portal'
 import { Cart } from './action.cart'
 import { DynNavMobile } from './action.dynNavMobile'
 
@@ -23,7 +24,8 @@ export const NavAction: React.FC<NavActionProps> = ({
   const Components = useMemo<Record<NAV_ACTION, React.FC<any>>>(
     () => ({
       settings: Settings,
-      user: () => <User session={session} providers={providers} />,
+      user: memo(() => (session ? <User session={session} /> : null)),
+      portal: memo(() => <Portal providers={providers} />),
       cart: Cart,
       notifications: () => null,
       wallet: () => null,
@@ -51,12 +53,12 @@ export const NavAction: React.FC<NavActionProps> = ({
       <AnimatePresence>
         {action && action !== NAV_ACTION.MENU_CANVAS && (
           <motion.div
-            className='absolute bottom-20 left-1/2 z-90 min-w-48 -translate-x-1/2 rounded-md border border-foreground/10 bg-background/20 px-4 py-6 backdrop-blur-md'
+            className='absolute bottom-20 left-1/2 z-90 -translate-x-1/2 rounded-md border border-foreground/10 bg-background/20 p-3 backdrop-blur-md'
             initial={actionAnimation.initial}
             animate={actionAnimation.animate}
             exit={actionAnimation.exit}
           >
-            <h6 className='mb-2 font-bold'>{startCase(action)}</h6>
+            {/* <h6 className='mb-2 font-bold'>{startCase(action)}</h6> */}
             <Component />
           </motion.div>
         )}

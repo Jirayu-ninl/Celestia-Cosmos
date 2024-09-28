@@ -88,6 +88,7 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
                   _onToggleNavAction={_onToggleNavAction}
                   _onToggleModal={_onToggleModal}
                   mouseX={mouseX}
+                  session={session}
                 />
               </div>
               <UserModule

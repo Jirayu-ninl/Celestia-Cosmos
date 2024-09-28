@@ -23,6 +23,7 @@ declare module 'next-auth' {
     user: {
       id: string
       username: string
+      name: string
       role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'
       plan: 'FREE' | 'PLUS' | 'PRO' | 'ELITE'
       balance: number
@@ -70,6 +71,7 @@ export const authOptions: NextAuthOptions | { adapter: any } = {
         user: {
           ...session.user,
           id: user.id,
+          name: user.name,
           username: user.username,
           role: user.role,
           plan: user.plan,

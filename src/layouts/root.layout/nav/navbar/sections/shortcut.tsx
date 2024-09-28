@@ -1,5 +1,7 @@
 import type { MotionValue } from 'framer-motion'
+import type { Session } from 'next-auth'
 import { motion } from 'framer-motion'
+import clsx from 'clsx'
 import { NAV_ACTION, CURSOR, MODAL } from '@/store'
 import {
   Menu as MenuIcon,
@@ -16,6 +18,7 @@ interface ShortcutSectionProps {
   _onToggleNavAction: (action: NAV_ACTION) => void
   _onToggleModal: (modal: MODAL) => void
   mouseX: MotionValue<number>
+  session: Session | null
 }
 
 export const Shortcut: React.FC<ShortcutSectionProps> = ({
@@ -24,6 +27,7 @@ export const Shortcut: React.FC<ShortcutSectionProps> = ({
   _onToggleNavAction,
   _onToggleModal,
   mouseX,
+  session,
 }) => {
   return (
     <>
@@ -39,9 +43,10 @@ export const Shortcut: React.FC<ShortcutSectionProps> = ({
         <DockItem
           mouseX={mouseX}
           onClick={() => {
-            _onToggleNavAction(NAV_ACTION.USER)
+            _onToggleNavAction(session ? NAV_ACTION.USER : NAV_ACTION.PORTAL)
             _setCursor(undefined)
           }}
+          className={clsx(session && 'md:hidden')}
         >
           <UserIcon />
         </DockItem>

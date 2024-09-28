@@ -1,98 +1,67 @@
-import type { Session, Providers } from '@types'
+import type { Session } from '@types'
 import { useState } from 'react'
-import clsx from 'clsx'
+import Link from 'next/link'
+import { signOut } from 'next-auth/react'
 import { useShallow } from 'zustand/react/shallow'
-import { AnimatePresence } from 'framer-motion'
+import clsx from 'clsx'
 import { useUserState } from '@/store'
-import { UserPanel } from './userPanel'
-import { SignInComponent } from './signIn'
-import { SignUpComponent } from './signUp'
-import { ProvidersComponent } from './providers'
-
-export enum CASE {
-  SIGN_IN = 'sign_In',
-  SIGN_UP = 'sign_Up',
-}
-
-export const User = ({
-  session,
-  providers,
-}: {
-  session: Session | null
-  providers: Providers | null
-}) => {
-  const [_case, _setCase] = useState<CASE>(CASE.SIGN_IN)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-
+import { Image } from '@components'
+import { LogOut } from '@nexel/cosmos/assets/icons'
+import { UserMenu } from './user.menu'
+import { UserNotification } from './notification'
+export const User = ({ session }: { session: Session }) => {
+  const [isSignOut, setIsSignOut] = useState(false)
   const [_setUser, _notifications] = useUserState(
     useShallow((st) => [st.setUser, st.notifications]),
   )
 
+  const username =
+    session.user.username.length > 8
+      ? session.user.username.slice(0, 8) + '.'
+      : session.user.username
+
+  const onSignOut = () => {
+    setIsSignOut(true)
+    signOut()
+  }
+
   return (
     <>
-      <>
-        {session ? (
-          <UserPanel session={session} />
-        ) : (
-          <div className='relative flex min-w-56 flex-col items-center text-sm'>
-            <div
-              className={clsx(
-                'absolute -top-8 right-2 rounded-md bg-foreground/10',
-                isLoading && 'pointer-events-none opacity-40',
-              )}
-            >
-              <button
-                type='button'
-                className={clsx(
-                  'Anim rounded-md px-2 py-1',
-                  _case === CASE.SIGN_IN && 'bg-primary text-black',
-                )}
-                onClick={() => _setCase(CASE.SIGN_IN)}
-              >
-                Sign in
-              </button>
-              <button
-                type='button'
-                className={clsx(
-                  'Anim rounded-md px-2 py-1',
-                  _case === CASE.SIGN_UP && 'bg-primary text-black',
-                )}
-                onClick={() => _setCase(CASE.SIGN_UP)}
-              >
-                Sign up
-              </button>
+      <div className='flex h-fit'>
+        <div>
+          <Link
+            className='Anim flex w-48 cursor-pointer items-center justify-center rounded-md bg-foreground/10 p-2 hover:bg-foreground/20'
+            href={`/profile/${session.user.username}`}
+          >
+            <div className='relative aspect-square w-8 overflow-hidden rounded-md'>
+              <Image
+                src={session.user.image || '/user/default/profile.png'}
+                alt='user profile'
+                unoptimized
+              />
             </div>
-            <AnimatePresence mode='wait'>
-              {_case === CASE.SIGN_IN ? (
-                <SignInComponent
-                  isLoading={isLoading}
-                  setIsLoading={setIsLoading}
-                />
-              ) : (
-                <SignUpComponent
-                  isLoading={isLoading}
-                  setIsLoading={setIsLoading}
-                />
-              )}
-            </AnimatePresence>
-            <div
-              className={clsx(
-                'my-6 flex w-full justify-center',
-                isLoading && 'opacity-40',
-              )}
-            >
-              <div className='my-auto h-px w-8 bg-white/30' />
-              <p className='px-3 text-xs'>or Continue with</p>
-              <div className='my-auto h-px w-8 bg-white/30' />
+            <div className='grow pl-2'>
+              <p className='text-sm font-bold'>{session.user.name}</p>
+              <p className='-mt-px text-xs opacity-60'>@{username}</p>
             </div>
-            <ProvidersComponent
-              providers={providers}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-          </div>
-        )}
-      </>
+          </Link>
+          <UserMenu />
+          <button
+            className={clsx(
+              'Anim flex w-full items-center justify-center rounded-md bg-foreground/10 fill-foreground py-1 hover:bg-red-500 hover:fill-white hover:text-white',
+              isSignOut && 'opacity-20',
+            )}
+            onClick={onSignOut}
+            disabled={isSignOut}
+          >
+            <div className='mr-2 aspect-square h-5'>
+              <LogOut />
+            </div>
+            {isSignOut ? 'loading' : 'Sign Out'}
+          </button>
+        </div>
+        <UserNotification />
+      </div>
     </>
   )
 }

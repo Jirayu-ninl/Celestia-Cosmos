@@ -28,15 +28,6 @@ export const DynamicNavModules: React.FC<DynamicNavModulesProps> = memo(
             _dynamicNav.length === 1 ? 'ml-2' : 'ml-2 px-2',
           )}
         >
-          {/* <div className='relative aspect-square h-full cursor-pointer fill-foreground p-1 md:hidden'>
-            <div
-              className='flex h-full w-full rounded-full bg-foreground/10'
-              onClick={() => setDynNavSwitchMobile((state) => !state)}
-            >
-              <FilterIcon className='my-auto h-1/2 w-1/2' />
-            </div>
-          </div> */}
-
           <motion.div className='flex h-full items-end fill-foreground'>
             {_dynamicNav.map((module) => (
               <RenderModule

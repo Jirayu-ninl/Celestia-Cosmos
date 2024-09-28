@@ -17,6 +17,7 @@ export enum NAV_ACTION {
   NOTIFICATIONS = 'notifications',
   CART = 'cart',
   SETTINGS = 'settings',
+  PORTAL = 'portal',
   USER = 'user',
   WALLET = 'wallet',
   MENU_CANVAS = 'menu_canvas',

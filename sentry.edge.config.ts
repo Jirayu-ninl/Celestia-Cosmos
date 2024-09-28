@@ -6,5 +6,5 @@ Sentry.init({
   release: config.app.VERSION,
   environment: process.env.NODE_ENV,
   tracesSampleRate: 1,
-  debug: process.env.NODE_ENV === 'development',
+  // debug: process.env.NODE_ENV === 'development',
 })

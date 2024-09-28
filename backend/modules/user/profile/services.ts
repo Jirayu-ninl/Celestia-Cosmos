@@ -1,5 +1,6 @@
 import type { usernameInput, updateUserProfileInput } from './schema'
 import type { Context } from '@backend/trpc/trpc.context'
+import { trpcResponse } from '@nexel/nextjs/utils/server/trpc'
 
 export const getProfileByUsername = async ({
   ctx,
@@ -13,15 +14,12 @@ export const getProfileByUsername = async ({
       username: input.username,
     },
   })
-  if (!user)
-    return {
-      success: false,
-      message: 'No username that requested',
-    }
-  return {
-    success: true,
-    user,
-  }
+  if (!user) return trpcResponse.fail('No username that requested')
+
+  const { password, ...userProfile } = user
+  return trpcResponse.success('Get user profile by username successfully', {
+    data: userProfile,
+  })
 }
 
 export const updateUserProfile = async ({
@@ -40,11 +38,11 @@ export const updateUserProfile = async ({
   const _id = ctx.session?.user.id
 
   if (existingUsername && existingUsername.id !== _id) {
-    return { success: false, message: 'This user already exists' }
+    return trpcResponse.fail('This user already exists')
   }
 
   try {
-    await ctx.prisma.user.update({
+    const user = await ctx.prisma.user.update({
       where: {
         id: _id,
       },
@@ -70,10 +68,11 @@ export const updateUserProfile = async ({
         },
       },
     })
-    return {
-      success: true,
-      message: 'Profile update completed',
-    }
+
+    const { password, ...userProfileUpdate } = user
+    return trpcResponse.success('Profile update completed', {
+      data: userProfileUpdate,
+    })
   } catch {
     throw new Error('Update user failed')
   }

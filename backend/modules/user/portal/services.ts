@@ -14,7 +14,7 @@ export const signin = async ({
   input: signinInput
 }) => {
   try {
-    const reqCredential = await ctx.prisma.credential.findUnique({
+    const reqCredential = await ctx.prisma.user.findUnique({
       where: {
         email: input.email,
       },
@@ -88,6 +88,7 @@ export const signup = async ({
           'This email was signup, Please login with your email or your social account',
       }
     }
+    const hashedPassword = await hash(input.password, 10)
 
     const user = await ctx.prisma.user.create({
       data: {
@@ -95,6 +96,7 @@ export const signup = async ({
         name: input.email.split('@')[0],
         email: input.email,
         image: '/user/default/profile.png',
+        password: hashedPassword,
       },
     })
     if (!user) {
@@ -103,31 +105,6 @@ export const signup = async ({
         message: 'Create user data failed',
       }
     }
-
-    const hashedPassword = await hash(input.password, 10)
-    const cred = await ctx.prisma.credential.create({
-      data: {
-        id: user.id,
-        email: input.email,
-        password: hashedPassword,
-      },
-    })
-    if (!cred) {
-      return {
-        success: false,
-        message: 'Create login info failed',
-      }
-    }
-
-    await ctx.prisma.user.update({
-      where: { email: input.email },
-      data: {
-        credential: {
-          connect: { email: input.email },
-        },
-      },
-      include: { credential: true },
-    })
 
     return {
       success: true,

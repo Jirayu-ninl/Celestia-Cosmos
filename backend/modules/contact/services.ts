@@ -1,5 +1,6 @@
 import type { dropEmailInput } from './schema'
 import type { Context } from '@backend/trpc/trpc.context'
+import { trpcResponse } from '@nexel/nextjs/utils/server/trpc'
 
 export const dropEmail = async ({
   ctx,
@@ -24,9 +25,6 @@ export const dropEmail = async ({
           },
         })
       }
-      return {
-        success: true,
-      }
     } else {
       await ctx.prisma.celestia.create({
         data: {
@@ -36,10 +34,8 @@ export const dropEmail = async ({
           },
         },
       })
-      return {
-        success: true,
-      }
     }
+    return trpcResponse.success('Drop email success')
   } catch (e) {
     throw new Error("Database/Aurora/Newsletter: Can't add user email")
   }

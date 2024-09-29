@@ -26,7 +26,6 @@ bun.lockb
 .env.dev
 .env.production
 .env.prod
-.million
 
 # next.js
 /.next/
@@ -77,5 +76,10 @@ lerna-debug.log*
 ## Panda
 styled-system
 styled-system-studio
+
 # Million Lint
 .million
+
+# NX Console
+.nx/cache
+.nx/workspace-data

@@ -88,7 +88,7 @@ const nextConfig = {
     return config
   },
   async headers() {
-    return [
+    const headers = [
       {
         source: '/api/public/:path*',
         headers: [
@@ -106,6 +106,15 @@ const nextConfig = {
         ],
       },
     ]
+
+    headers.push({
+      source: '/:path*',
+      headers: [
+        { key: 'X-Frame-Options', value: 'DENY' },
+      ],
+    })
+
+    return headers
   },
   reactStrictMode: true,
   typescript: {

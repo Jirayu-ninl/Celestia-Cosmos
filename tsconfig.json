@@ -2,11 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "bundler",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -26,73 +22,27 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@aurora/*": [
-        "aurora/*"
-      ],
-      "@aurora": [
-        "aurora"
-      ],
-      "@app": [
-        "src/app"
-      ],
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@config": [
-        "global/config"
-      ],
-      "@routes": [
-        "global/config/routes.ts"
-      ],
-      "@env": [
-        "global/env.mjs"
-      ],
-      "@constants": [
-        "global/constants"
-      ],
-      "@components": [
-        "src/components"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@backend": [
-        "backend"
-      ],
-      "@backend/*": [
-        "backend/*"
-      ],
-      "@database": [
-        "backend/database"
-      ],
-      "@trpc": [
-        "backend/trpc/client"
-      ],
-      "@types": [
-        "types"
-      ],
-      "public/*": [
-        "public/*"
-      ]
+      "@/*": ["src/*"],
+      "@app": ["src/app"],
+      "@app/*": ["src/app/*"],
+      "@aurora": ["aurora"],
+      "@aurora/*": ["aurora/*"],
+      "@backend": ["backend"],
+      "@backend/*": ["backend/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@config": ["global/config"],
+      "@constants": ["global/constants"],
+      "@database": ["backend/database"],
+      "@env": ["global/env.mjs"],
+      "@routes": ["global/config/routes.ts"],
+      "@trpc": ["backend/trpc/client"],
+      "@types": ["types"],
+      "public/*": ["public/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
+    "typeRoots": ["./node_modules/@types", "./types"],
     "target": "ES2017"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/**/node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "**/**/node_modules", "**/*.spec.ts"]
 }

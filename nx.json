@@ -14,9 +14,11 @@
   ],
   "targetDefaults": {
     "db": {
-      "dependsOn": [
-        "^db"
-      ]
+      "dependsOn": ["^db"]
     }
+  },
+  "namedInputs": {
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/github-ci.yml"],
+    "default": ["sharedGlobals"]
   }
 }

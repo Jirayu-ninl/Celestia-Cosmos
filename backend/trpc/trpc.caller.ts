@@ -2,7 +2,7 @@ import { getSession } from '../auth'
 import { AppController } from '../controllers'
 import { t } from '../trpc/trpc.init'
 import { prisma } from '../database'
-import { MinioClient as s3 } from '@nexel/nextjs/libs/storage'
+import { s3 } from '@nexel/nextjs/libs/storage'
 
 const trpcCaller = async (req: Request, res: Response) => {
   const session = await getSession()

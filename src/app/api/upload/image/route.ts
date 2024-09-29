@@ -2,15 +2,16 @@ import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { uuidv7 } from 'uuidv7'
 import { s3 } from '@nexel/nextjs/libs/storage'
-import { getSession } from '@backend/auth/aurora'
 import { convertFromReadableStream } from '@nexel/nextjs/utils/data'
 import { optimize } from '@nexel/nextjs/utils/image'
 import { setResponse } from '@nexel/nextjs/utils/server/response.status'
+import { getSession } from '@backend/auth/aurora'
+import { prisma } from '@backend/database'
 
 export const PUT = async (req: Request) => {
   const session = await getSession()
 
-  if (!session || !session.user) {
+  if (!session || !session.user || !session.user.id) {
     return setResponse.unauthorized()
   }
 
@@ -22,16 +23,18 @@ export const PUT = async (req: Request) => {
     const { searchParams } = new URL(req.url)
     const _dir = searchParams.get('dir')
     const _bucketSuffix = searchParams.get('bucketSuffix')
+    const _name = searchParams.get('name')
+    const _description = searchParams.get('description')
 
     // if (!name) throw new Error('File name not provided')
-    const imageKey = uuidv7()
+    const imageId = uuidv7()
 
     const data = await convertFromReadableStream.toBuffer(
       req.body as ReadableStream,
     )
     if (_fileSize !== data.length) throw new Error('Lost data while uploading')
 
-    const name = `${_dir}.${imageKey}.jpg`
+    const key = `${_dir}.${imageId}.jpg`
 
     const bucketName = _bucketSuffix
       ? process.env.S3_UPLOAD_BUCKET + '.' + _bucketSuffix
@@ -56,19 +59,41 @@ export const PUT = async (req: Request) => {
       optimizeConfig,
     )
 
+    if (!optimizeImageBuffer) throw new Error('Error while optimizing image')
+
     const upload = await s3.putObject({
       bucket: bucketName!,
-      key: name,
+      key,
       file: {
         body: optimizeImageBuffer,
         contentType: 'image/jpeg',
         metadata: {
-          'Image-Key': `${_dir}.${imageKey}`,
+          'Image-Key': `${_dir}.${imageId}`,
           'User-Id': session.user.id,
         },
       },
     })
-    return NextResponse.json({ success: true, upload, id: imageKey, name })
+
+    if (!upload) throw new Error('Error while uploading to s3')
+
+    const asset = await prisma.asset.create({
+      data: {
+        ...(_name && { name: decodeURIComponent(_name) }),
+        ...(_description && { description: decodeURIComponent(_description) }),
+        key,
+        dir: _dir ?? '',
+        imageId,
+        userId: session.user.id,
+      },
+    })
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        ...asset,
+      },
+      _metaData: { upload, asset },
+    })
   } catch (e) {
     if (
       typeof e === 'object' &&

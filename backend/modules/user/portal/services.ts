@@ -4,7 +4,7 @@ import cookie from 'cookie'
 import type { signinInput, signupInput } from './schema'
 import type { Context } from '@backend/trpc/trpc.context'
 import { getErrorMessage } from '@nexel/nextjs/utils/server/error'
-// import { env } from '@env'
+import { trpcResponse } from '@nexel/nextjs/utils/server/trpc'
 
 export const signin = async ({
   ctx,
@@ -19,14 +19,13 @@ export const signin = async ({
         email: input.email,
       },
     })
-    if (!reqCredential) {
-      return { success: false, message: 'No credential that requested' }
-    }
+    if (!reqCredential) return trpcResponse.fail('No credential that requested')
+
     if (
       reqCredential.password &&
       !(await compare(input.password, reqCredential.password))
     ) {
-      return { success: false, message: 'Password not matched' }
+      return trpcResponse.fail('Password not matched')
     }
 
     const sessionToken = uuidv7()
@@ -39,12 +38,8 @@ export const signin = async ({
         expires: sessionExpiry,
       },
     })
-    if (!session) {
-      return {
-        success: false,
-        message: 'Create session failed',
-      }
-    }
+    if (!session) return trpcResponse.fail('Create session failed')
+
     const useSecureCookies = process.env.NODE_ENV === 'production'
     const cookiePrefix = useSecureCookies ? '__Secure-' : ''
 
@@ -59,11 +54,10 @@ export const signin = async ({
       }),
     )
 
-    return {
-      success: true,
-      session: { token: sessionToken },
-      user: reqCredential,
-    }
+    return trpcResponse.success('Login complete', {
+      data: reqCredential,
+      metadata: { session: { token: sessionToken } },
+    })
   } catch (e) {
     const message = getErrorMessage(e)
     throw new Error(message)
@@ -81,13 +75,8 @@ export const signup = async ({
     const existingEmail = await ctx.prisma.user.findUnique({
       where: { email: input.email },
     })
-    if (existingEmail) {
-      return {
-        success: false,
-        message:
-          'This email was signup, Please login with your email or your social account',
-      }
-    }
+    if (existingEmail) return trpcResponse.fail('This email was signup')
+
     const hashedPassword = await hash(input.password, 10)
 
     const user = await ctx.prisma.user.create({
@@ -99,17 +88,9 @@ export const signup = async ({
         password: hashedPassword,
       },
     })
-    if (!user) {
-      return {
-        success: false,
-        message: 'Create user data failed',
-      }
-    }
+    if (!user) return trpcResponse.fail('Create user data failed')
 
-    return {
-      success: true,
-      user,
-    }
+    return trpcResponse.success('Signup complete', { data: user })
   } catch (e) {
     const message = getErrorMessage(e)
     throw new Error(message)

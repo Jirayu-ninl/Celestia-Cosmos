@@ -1,6 +1,7 @@
 import http from 'k6/http'
 import { check, sleep, group } from 'k6'
 import { Rate, Counter, Trend } from 'k6/metrics'
+import { SERVICE_URLS, TEST_USER } from './constants'
 
 // Metrics
 const errorRate = new Rate('errors')
@@ -26,17 +27,6 @@ export const options = {
     errors: ['rate<0.01'], // Error rate should be below 1%
     'http_req_duration{type:POST}': ['avg<300'], // Average POST request duration should be below 300ms
   },
-}
-
-const TEST_USER = { email: 'test@theiceji.com', password: 'test_pass' }
-
-const SERVICE_URLS = {
-  COSMOS: 'https://theiceji.com',
-  NEXUS: 'https://nexus.theiceji.com',
-  STELLA: 'https://stella.theiceji.com',
-  ASTRA: 'https://astra.theiceji.com',
-  INTERLINK: 'https://interlink.theiceji.com',
-  STARGATE: 'https://stargate.theiceji.com',
 }
 
 export default async function () {

@@ -1,0 +1,21 @@
+name: Health Check
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Run every hour
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run k6
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: tests/k6/health.js
+        #   cloud: true
+        #   token: ${{ secrets.K6_CLOUD_API_TOKEN }}

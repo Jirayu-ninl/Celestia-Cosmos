@@ -18,7 +18,7 @@
     }
   },
   "namedInputs": {
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/github-ci.yml"],
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/nx-cloud.yml"],
     "default": ["sharedGlobals"]
   }
 }

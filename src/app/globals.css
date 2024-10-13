@@ -419,7 +419,7 @@ canvas {
 /* *! Form */
 
 .Form input {
-  @apply bg-foreground/10 px-2 py-1;
+  @apply bg-foreground/5 px-2 py-1 dark:bg-foreground/10;
 }
 
 .Form input::placeholder {
@@ -468,12 +468,12 @@ canvas {
 .Form-checkbox:checked + label:after {
   content: '';
   box-shadow:
-    2px 0 0 white,
-    4px 0 0 white,
-    4px -2px 0 white,
-    4px -4px 0 white,
-    4px -6px 0 white,
-    4px -8px 0 white;
+    2px 0 0 hsl(var(--foreground)),
+    4px 0 0 hsl(var(--foreground)),
+    4px -2px 0 hsl(var(--foreground)),
+    4px -4px 0 hsl(var(--foreground)),
+    4px -6px 0 hsl(var(--foreground)),
+    4px -8px 0 hsl(var(--foreground));
   @apply absolute left-[2px] top-1 h-1 w-1 rotate-45 bg-foreground;
 }
 

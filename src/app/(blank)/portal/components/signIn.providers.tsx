@@ -17,7 +17,7 @@ const SignInProviders = ({
   const router = useRouter()
 
   useEffect(() => {
-    session && router.push('/app/profile')
+    session && router.push('/dashboard')
   }, [session, router])
 
   return (

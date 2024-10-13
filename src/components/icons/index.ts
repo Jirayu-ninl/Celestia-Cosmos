@@ -9,6 +9,8 @@ import {
   FaAngleDown,
   FaAngleLeft,
   FaAngleRight,
+  FaArrowLeft,
+  FaArrowUp,
   FaXmark,
   FaDollarSign,
   FaChartGantt,
@@ -186,5 +188,7 @@ export const Up = FaAngleUp
 export const Down = FaAngleDown
 export const Left = FaAngleLeft
 export const Right = FaAngleRight
+export const ArrowUp = FaArrowUp
+export const ArrowLeft = FaArrowLeft
 export const QuoteLeft = FaQuoteLeft
 export const QuoteRight = FaQuoteRight

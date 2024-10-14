@@ -3,7 +3,7 @@ type Route = {
   path: string
 }
 
-export const routes: Route[] = [
+export const webRoutes: Route[] = [
   {
     title: 'HOME',
     path: '/home',

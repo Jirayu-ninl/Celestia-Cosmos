@@ -8,7 +8,7 @@ import { Canvas } from '@react-three/fiber'
 import { useUiState, useAppState } from '@/store'
 import { useOptimization } from '@nexel/cosmos/gl/hooks'
 import Scene from './scene'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 
 function CanvasApp() {
   const _gpuTier = useAppState((st) => st.gpuTier)

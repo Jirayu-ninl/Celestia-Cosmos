@@ -1,7 +1,7 @@
 'use client'
 import { motion, AnimatePresence } from 'framer-motion'
 import clsx from 'clsx'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { useUiState, FOOTER } from '@/store'
 
 // import { aFooter } from '@/config/config.animation'

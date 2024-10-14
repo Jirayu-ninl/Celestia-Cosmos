@@ -1,6 +1,6 @@
 'use client'
 
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { useUiState, CURSOR } from '@/store'
 import { contacts } from '@config'
 import { getContactObject } from '@/utils/contacts'

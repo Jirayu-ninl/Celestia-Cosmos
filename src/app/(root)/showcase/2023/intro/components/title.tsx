@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import { useUiState, CURSOR } from '@/store'
 import clsx from 'clsx'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 
 function Title() {
   const [_dark, _setCursor] = useUiState(

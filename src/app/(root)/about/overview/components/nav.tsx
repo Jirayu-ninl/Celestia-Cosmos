@@ -1,7 +1,7 @@
 import { Section } from '../common'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { useUiState, CURSOR } from '@/store'
 import Arrow from './iconArrow'
 

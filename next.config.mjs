@@ -164,8 +164,8 @@ const millionConfig = {
 export default plugins(
   [
     [withSentryConfig, sentryWebpackPluginOptions],
-    process.env.NODE_ENV === 'development' &&
-      MillionLint.next(millionConfig.lint),
+    // process.env.NODE_ENV === 'development' &&
+    //   MillionLint.next(millionConfig.lint),
     [MillionCompiler.next, millionConfig.compiler],
     withPWA,
     withBundleAnalyzer,

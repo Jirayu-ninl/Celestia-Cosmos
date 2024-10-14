@@ -1,6 +1,6 @@
 'use client'
 
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { Moon } from '@nexel/cosmos/assets/icons/moon'
 import { useUiState } from '@/store'
 import { NavPage } from './nav.page'

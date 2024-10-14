@@ -1,7 +1,7 @@
 // c-spell: disable
 'use client'
 
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { SmoothScroll, OnScrollFunctionProps } from '@nexel/cosmos/animations'
 import { useUiState, NAV_DYN_TYPE, DynamicNavShareSocial } from '@/store'
 

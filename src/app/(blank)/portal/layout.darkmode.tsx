@@ -1,7 +1,7 @@
 'use client'
 
 import { useUiState } from '@/store'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import {
   MoonStar as MoonStarIcon,
   Sun as SunIcon,

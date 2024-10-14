@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { useUiState, CURSOR } from '@/store'
 
 export function MoreSection({ _dark }: { _dark: boolean }) {

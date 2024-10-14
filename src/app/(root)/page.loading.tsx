@@ -3,7 +3,7 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, animate, AnimatePresence } from 'framer-motion'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 // import { useGLTF } from '@react-three/drei'
 
 import { useUiState, NAV, CURSOR } from '@/store'

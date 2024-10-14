@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import clsx from 'clsx'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 
 import { useOnClickOutside } from '@nexel/nextjs/libs/hooks/events'
 import { useUiState } from '@/store'

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import throttle from 'lodash.throttle'
 import { useUiState, CURSOR } from '@/store'
 import { MainCursorCSS, BigCursorCSS } from './cursor.css'

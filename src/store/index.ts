@@ -11,3 +11,4 @@ export type {
 } from './UiState.DynNav'
 export { useAppState } from './app.store'
 export { useUserState } from './user.store'
+export type { User } from './UserState'

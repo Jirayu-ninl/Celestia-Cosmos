@@ -3,7 +3,12 @@ import { create } from 'zustand'
 
 export const useUserState = create<UserState>((set, get) => ({
   user: undefined,
-  setUser: (user) => set({ user: user }),
+  onSetUser: (user) => {
+    const isUser = get().user
+    if (isUser) return
+    set({ user: user })
+  },
+  onClearUser: () => set({ user: undefined }),
   notifications: [],
   setNotifications: (n) => set({ notifications: n }),
   cart: [],

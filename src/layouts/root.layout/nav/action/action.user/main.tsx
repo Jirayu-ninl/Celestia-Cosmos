@@ -11,8 +11,8 @@ import { UserMenu } from './user.menu'
 import { UserNotification } from './notification'
 export const User = ({ session }: { session: Session }) => {
   const [isSignOut, setIsSignOut] = useState(false)
-  const [_setUser, _notifications] = useUserState(
-    useShallow((st) => [st.setUser, st.notifications]),
+  const [_onSetUser, _notifications] = useUserState(
+    useShallow((st) => [st.onSetUser, st.notifications]),
   )
 
   const username =

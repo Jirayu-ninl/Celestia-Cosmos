@@ -27,4 +27,51 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - uses: nrwl/nx-set-shas@v4
-      - run: pnpm exec nx affected -t lint test build
+
+      - name: Run Affected Commands
+        run: |
+          pnpm exec nx affected --target=lint
+          pnpm exec nx affected --target=test
+
+      - name: Test and Deploy
+        run: |
+          pnpm run test:deploy
+        env:
+          NEXT_PUBLIC_GTM: "dummy-gtm-id"
+          NEXT_PUBLIC_S3_DOWNLOAD_ENDPOINT: "https://example-s3-download-endpoint.com"
+          NEXT_PUBLIC_S3_UPLOAD_ENDPOINT: "https://example-s3-upload-endpoint.com"
+          NEXTAUTH_SECRET: "dummy-nextauth-secret"
+          NEXTAUTH_URL: "https://example-app-url.com"
+          TOKEN: "dummy-token"
+          GRAPHQL_POST_URL: "https://example-graphql-post-url.com"
+          GRAPHQL_PROJECT_URL: "https://example-graphql-project-url.com"
+          # GRAPHQL_SHOP_URL is optional, uncomment if needed
+          # GRAPHQL_SHOP_URL: "https://example-graphql-shop-url.com"
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          ACCELERATE_URI: ${{ secrets.ACCELERATE_URI }}
+          REDIS_URL: "redis://example-redis-url"
+          AUTH_FB_APP_ID: "dummy-fb-app-id"
+          AUTH_FB_APP_SECRET: "dummy-fb-app-secret"
+          AUTH_GITHUB_CLIENT_ID: "dummy-github-client-id"
+          AUTH_GITHUB_CLIENT_SECRET: "dummy-github-client-secret"
+          AUTH_GOOGLE_CLIENT_ID: "dummy-google-client-id"
+          AUTH_GOOGLE_CLIENT_SECRET: "dummy-google-client-secret"
+          AUTH_DISCORD_CLIENT_ID: "dummy-discord-client-id"
+          AUTH_DISCORD_CLIENT_SECRET: "dummy-discord-client-secret"
+          S3_ORIGINS: "dummy-s3-origin"
+          S3_UPLOAD_ENDPOINT: "https://example-s3-upload-endpoint.com"
+          S3_UPLOAD_KEY: "dummy-s3-upload-key"
+          S3_UPLOAD_SECRET: "dummy-s3-upload-secret"
+          S3_UPLOAD_REGION: "dummy-s3-upload-region"
+          S3_UPLOAD_BUCKET: "dummy-s3-upload-bucket"
+          EMAIL_HOST: "example-email-host"
+          EMAIL_PORT: "587"  # Example port for SMTP
+          EMAIL_SECURE: "false"  # Use "true" for secure connections
+          EMAIL_USER: "dummy-email-username"
+          EMAIL_PASS: "dummy-email-password"
+          EMAIL_FROM: "dummy-email@example.com"
+          STRIPE_SECRET_KEY: "dummy-stripe-secret-key"
+          STRIPE_WEBHOOK_SECRET: "dummy-stripe-webhook-secret"
+          STRIPE_DONATE_ID: "dummy-stripe-donate-id"
+          STRIPE_METADATA_KEY: "dummy-stripe-metadata-key"
+      - run: pnpm dlx nx-cloud stop-ci-run --add-gh-check

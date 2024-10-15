@@ -38,6 +38,8 @@ pnpm build
 echo "### Preparing app for deployment..."
 mv ".next/static" ".next/standalone/.next/static"
 cp -r "public" ".next/standalone/public"
+rm ".next/standalone/.env"
+mv ".env.prod" ".next/standalone/.env"
 cd ".next/standalone" || exit 1
 
 echo "### Compressing..."

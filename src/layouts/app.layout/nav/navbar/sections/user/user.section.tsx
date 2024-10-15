@@ -2,18 +2,18 @@ import type { Session } from 'next-auth'
 import type { MotionValue } from 'framer-motion'
 import { memo, useState, useRef } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { DockItem } from '../../../dock'
+import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
 import { Settings as SettingsIcon } from '@nexel/cosmos/assets/icons'
 import { useOnClickOutside } from '@nexel/nextjs/libs/hooks/events'
 import { UserIcon } from './user.icon'
 import { UserAction } from './action'
 
 interface UserSectionProps {
-  mouseX: MotionValue<number>
+  mouseY: MotionValue<number>
   session: Session | null
 }
 
-export const User: React.FC<UserSectionProps> = memo(({ mouseX, session }) => {
+export const User: React.FC<UserSectionProps> = memo(({ mouseY, session }) => {
   const [openUserAction, setOpenUserAction] = useState(false)
   const $container = useRef(null)
 
@@ -25,12 +25,12 @@ export const User: React.FC<UserSectionProps> = memo(({ mouseX, session }) => {
         className='relative flex w-full flex-col items-center fill-foreground [&>a]:my-2 [&>div]:my-2'
         ref={$container}
       >
-        <DockItem mouseX={mouseX}>
+        <DockItem mouseY={mouseY}>
           <SettingsIcon />
         </DockItem>
         <div className='my-2 h-0.5 w-6 rounded-full bg-foreground/20' />
         <UserIcon
-          mouseX={mouseX}
+          mouseY={mouseY}
           session={session}
           setOpenUserAction={setOpenUserAction}
         />

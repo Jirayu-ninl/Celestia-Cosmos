@@ -1,6 +1,6 @@
 import type { MotionValue } from 'framer-motion'
 import { useShallow } from 'zustand/shallow'
-import { useUiState, NAV_ACTION, CURSOR } from '@/store'
+import { useUiState, CURSOR } from '@/store'
 import {
   // Settings as SettingsIcon,
   SoundOn as SoundOnIcon,
@@ -8,7 +8,7 @@ import {
   MoonStar as MoonStarIcon,
   Sun as SunIcon,
 } from '@nexel/cosmos/assets/icons'
-import { DockItem } from '../../dock'
+import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/x.width'
 
 interface SettingsSectionProps {
   _setCursor: (cursor: CURSOR | undefined) => void

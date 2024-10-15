@@ -3,22 +3,22 @@ import type { MotionValue } from 'framer-motion'
 import type { Dispatch, SetStateAction } from 'react'
 import { memo } from 'react'
 import Link from 'next/link'
-import { DockItem } from '../../../dock'
+import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
 import { User as UserSvg } from '@nexel/cosmos/assets/icons'
 import { Image } from '@components'
 
 interface UserIconProps {
-  mouseX: MotionValue<number>
+  mouseY: MotionValue<number>
   session: Session | null
   setOpenUserAction: Dispatch<SetStateAction<boolean>>
 }
 
 export const UserIcon: React.FC<UserIconProps> = memo(
-  ({ mouseX, session, setOpenUserAction }) => {
+  ({ mouseY, session, setOpenUserAction }) => {
     if (!session) {
       return (
         <Link href='/portal'>
-          <DockItem mouseX={mouseX}>
+          <DockItem mouseY={mouseY}>
             <UserSvg />
           </DockItem>
         </Link>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { DynamicNavExternal_link, CURSOR } from '@/store'
+import { DynamicNavExternal_link } from '@/store'
 
 import { ExternalLink } from '@components/icons'
 

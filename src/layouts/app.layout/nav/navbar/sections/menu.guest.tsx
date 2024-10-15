@@ -1,23 +1,23 @@
 import type { MotionValue } from 'framer-motion'
 import { memo } from 'react'
 import Link from 'next/link'
-import { DockItem } from '../../dock'
+import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
 import { Home, Search } from '@nexel/cosmos/assets/icons'
 
 interface MenuGuestSectionProps {
-  mouseX: MotionValue<number>
+  mouseY: MotionValue<number>
 }
 
-export const Guest: React.FC<MenuGuestSectionProps> = memo(({ mouseX }) => {
+export const Guest: React.FC<MenuGuestSectionProps> = memo(({ mouseY }) => {
   return (
     <>
       <div className='flex w-full flex-col fill-foreground py-4 pl-1 [&>a]:my-2 [&>div]:my-2'>
         <Link href='/'>
-          <DockItem mouseX={mouseX}>
+          <DockItem mouseY={mouseY}>
             <Home />
           </DockItem>
         </Link>
-        <DockItem mouseX={mouseX}>
+        <DockItem mouseY={mouseY}>
           <Search />
         </DockItem>
       </div>

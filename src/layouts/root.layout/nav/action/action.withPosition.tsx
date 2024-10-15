@@ -1,11 +1,12 @@
 import type { Session, Providers } from '@types'
-import React, { useMemo } from 'react'
+import { useMemo, memo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { startCase } from 'lodash-es'
 import clsx from 'clsx'
 import { NAV, NAV_ACTION } from '@/store'
 import { Settings } from './action.settings'
 import { User } from './action.user'
+import { Portal } from './action.portal'
 import { Cart } from './action.cart'
 import { DynNavMobile } from './action.dynNavMobile'
 
@@ -25,7 +26,8 @@ export const NavAction: React.FC<NavActionProps> = ({
   const Components = useMemo<Record<NAV_ACTION, React.FC<any>>>(
     () => ({
       settings: Settings,
-      user: () => <User session={session} providers={providers} />,
+      user: memo(() => (session ? <User session={session} /> : null)),
+      portal: memo(() => <Portal providers={providers} />),
       cart: Cart,
       notifications: () => null,
       wallet: () => null,

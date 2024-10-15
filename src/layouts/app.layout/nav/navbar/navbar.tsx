@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'
 
+import { DockUI } from '@nexel/cosmos/ui'
 import { useOnClickOutside } from '@nexel/nextjs/libs/hooks/events'
 import { useUiState } from '@/store'
 import { appRoutes, APP_ROUTES } from '@routes'
@@ -46,7 +47,8 @@ export const NavBar: React.FC<NavBarProps> = ({ session }) => {
   const $navContainer = useRef(null)
   useOnClickOutside($navContainer, () => _onClearNavAction())
 
-  const mouseX = useRef(useMotionValue(Infinity)).current
+  // const mouseX = useRef(useMotionValue(Infinity)).current
+  const { mouse: mouseY, Dock } = DockUI()
 
   const [page, setPage] = useState<APP_ROUTES>(APP_ROUTES.DASHBOARD)
   const pathname = usePathname()
@@ -72,12 +74,13 @@ export const NavBar: React.FC<NavBarProps> = ({ session }) => {
             className='fixed left-0 top-0 z-80 h-dvh px-4 py-5'
             ref={$navContainer}
           >
-            <motion.div
+            <Dock
               className='relative flex h-full w-12 flex-col rounded-md dark:shadow-xl el:w-16'
-              style={{ perspective: 1 }}
-              onMouseMove={(e) => mouseX.set(e.pageY)}
-              onTap={() => mouseX.set(Infinity)}
-              onMouseLeave={() => mouseX.set(Infinity)}
+              // style={{ perspective: 1 }}
+              options={{ dockAlign: 'Y' }}
+              // onMouseMove={(e) => mouseX.set(e.pageY)}
+              // onTap={() => mouseX.set(Infinity)}
+              // onMouseLeave={() => mouseX.set(Infinity)}
             >
               <div className='flex min-h-14 w-full flex-col items-center rounded-t-md bg-black/[0.07] shadow-md backdrop-blur-md dark:bg-white/[0.07]'>
                 <Section.Logo
@@ -85,16 +88,16 @@ export const NavBar: React.FC<NavBarProps> = ({ session }) => {
                   _onToggleModal={_onToggleModal}
                 />
                 {session ? (
-                  <Section.Menu.WithSession mouseX={mouseX} page={page} />
+                  <Section.Menu.WithSession mouseY={mouseY} page={page} />
                 ) : (
-                  <Section.Menu.Guest mouseX={mouseX} />
+                  <Section.Menu.Guest mouseY={mouseY} />
                 )}
               </div>
               <div className='flex grow flex-col items-center justify-end rounded-b-md border border-foreground/[0.07] shadow-md backdrop-blur-md'>
-                {session && <Section.Stash mouseX={mouseX} />}
-                <Section.User mouseX={mouseX} session={session} />
+                {session && <Section.Stash mouseY={mouseY} />}
+                <Section.User mouseY={mouseY} session={session} />
               </div>
-            </motion.div>
+            </Dock>
           </motion.div>
         )}
       </AnimatePresence>

@@ -9,14 +9,14 @@ import {
   User as UserIcon,
   Cart as CartIcon,
 } from '@nexel/cosmos/assets/icons'
-import { DockItem } from '../../dock'
+import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
 
 interface ShortcutSectionProps {
   _navAction: NAV_ACTION | undefined
   _setCursor: (cursor: CURSOR | undefined) => void
   _onToggleNavAction: (action: NAV_ACTION) => void
   _onToggleModal: (modal: MODAL) => void
-  mouseX: MotionValue<number>
+  mouseY: MotionValue<number>
   session: Session | null
 }
 
@@ -24,14 +24,14 @@ export const Shortcut: React.FC<ShortcutSectionProps> = ({
   _navAction,
   _onToggleNavAction,
   _onToggleModal,
-  mouseX,
+  mouseY,
   session,
 }) => {
   return (
     <>
       <motion.div className='flex w-full flex-col fill-foreground pl-1 [&>div]:my-2'>
         <DockItem
-          mouseX={mouseX}
+          mouseY={mouseY}
           onClick={() => {
             _onToggleNavAction(session ? NAV_ACTION.USER : NAV_ACTION.PORTAL)
           }}
@@ -40,7 +40,7 @@ export const Shortcut: React.FC<ShortcutSectionProps> = ({
           <UserIcon />
         </DockItem>
         <DockItem
-          mouseX={mouseX}
+          mouseY={mouseY}
           onClick={() => {
             _onToggleNavAction(NAV_ACTION.CART)
           }}
@@ -48,7 +48,7 @@ export const Shortcut: React.FC<ShortcutSectionProps> = ({
           <CartIcon />
         </DockItem>
         <DockItem
-          mouseX={mouseX}
+          mouseY={mouseY}
           onClick={() => {
             _onToggleNavAction(NAV_ACTION.MENU_CANVAS)
           }}

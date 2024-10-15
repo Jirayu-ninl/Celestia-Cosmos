@@ -27,3 +27,20 @@ Consists of
 - **Celestia: Orion** - assets, and data center
 
 see at: [**TheIceJi**](https://theiceji.com)
+
+#### Build project
+
+**Fix**
+```
+dos2unix ./scripts/build.sh
+```
+or
+```
+sed -i 's/\r$//' ./scripts/build.sh
+```
+
+**Build**
+```
+chmod +x ./scripts/build.sh
+./scripts/build.sh
+```

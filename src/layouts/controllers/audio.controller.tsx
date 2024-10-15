@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { useUiState } from '@/store'
 
 const AudioUrl = '/layout/audio/WebSound.mp3'

@@ -1,6 +1,6 @@
 'use client'
 
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { useUiState } from '@/store'
 
 export const withSettings = (Component: React.FC<any>) => {

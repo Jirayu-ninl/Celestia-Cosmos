@@ -5,7 +5,7 @@ import headerFrontVertShader from '../shaders/headerFront.v.glsl'
 import headerFrontFragShader from '../shaders/headerFront.f.glsl'
 import headerBackVertShader from '../shaders/headerBack.v.glsl'
 import headerBackFragShader from '../shaders/headerBack.f.glsl'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 
 const Title = ({ _dark, isMobile }: { _dark: boolean; isMobile: boolean }) => {
   const _setCursor = useUiState((st) => st.setCursor)

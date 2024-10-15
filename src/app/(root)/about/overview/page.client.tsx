@@ -2,7 +2,7 @@
 
 import { Section } from './common'
 import { useSearchParams } from 'next/navigation'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { useUiState } from '@/store'
 import { FreeTimeItems } from '@/contents/pages/about'
 import { Nav } from './components/nav'

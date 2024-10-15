@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "main",
+  "npmScope": "celestia",
   "nxCloudId": "66f962b4175f7c6817bfb0c0",
   "plugins": [
     {
@@ -12,13 +13,120 @@
       }
     }
   ],
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "pre:css", "pre:db", "pre:gql"],
+        "parallel": true
+      }
+    }
+  },
   "targetDefaults": {
     "db": {
       "dependsOn": ["^db"]
+    },
+    "build": {
+      "dependsOn": ["^pre:css", "^pre:db", "^pre:gql"],
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"]
+    },
+    "lint": {
+      "dependsOn": [],
+      "cache": true
+    },
+    "format": {
+      "dependsOn": [],
+      "cache": true
+    },
+    "clean": {
+      "dependsOn": [],
+      "outputs": ["{workspaceRoot}/node_modules", "{workspaceRoot}/dist"]
     }
   },
   "namedInputs": {
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/github-ci.yml"],
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/nx-cloud.yml"],
     "default": ["sharedGlobals"]
+  },
+  "projects": {
+    "app": {
+      "root": ".",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "options": {
+            "outputPath": "dist"
+          }
+        },
+        "dev": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "port": 8989
+          }
+        },
+        "start": {
+          "executor": "@nrwl/next:start",
+          "options": {
+            "port": 8989
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.{js,ts,jsx,tsx}"]
+          }
+        },
+        "analyze": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "cross-env ANALYZE=true nx run build"
+          }
+        }
+      }
+    },
+    "packages": {
+      "root": "packages",
+      "sourceRoot": "packages",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "pnpm -r --filter=\"./packages/*\" build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/**/*.{js,ts,jsx,tsx}"]
+          }
+        },
+        "pre:css": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "panda codegen"
+          }
+        },
+        "pre:db": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "dotenv -- pnpm --filter @celestia/prisma db"
+          }
+        },
+        "pre:gql": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "pnpm --filter @celestia/gql pnpm:gql"
+          }
+        },
+        "clean": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "pnpm run /^clean:.*/"
+          }
+        }
+      }
+    }
   }
 }

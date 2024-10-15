@@ -3,8 +3,9 @@
 import type { Session, Providers } from '@types'
 import { useRef } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 
+import { DockUI } from '@nexel/cosmos/ui'
 import { useOnClickOutside } from '@nexel/nextjs/libs/hooks/events'
 import { useUiState } from '@/store'
 import * as Section from './sections'
@@ -48,7 +49,8 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
   const $navContainer = useRef(null)
   useOnClickOutside($navContainer, () => _onClearNavAction())
 
-  const mouseX = useRef(useMotionValue(Infinity)).current
+  // const mouseX = useRef(useMotionValue(Infinity)).current
+  const { mouse: mouseX, Dock } = DockUI()
 
   return (
     <>
@@ -61,13 +63,14 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
             className='fixed bottom-0 right-1/2 z-80 px-5 py-4'
             ref={$navContainer}
           >
-            <motion.div
+            <Dock
               className='relative flex h-12 rounded-md dark:shadow-xl el:h-16'
-              style={{ perspective: 1 }}
+              // style={{ perspective: 1 }}
               whileHover={{ scale: 1.05, perspective: 1, z: 0 }}
-              onMouseMove={(e) => mouseX.set(e.pageX)}
-              onTap={() => mouseX.set(Infinity)}
-              onMouseLeave={() => mouseX.set(Infinity)}
+              options={{ dockAlign: 'X' }}
+              // onMouseMove={(e) => mouseX.set(e.pageX)}
+              // onTap={() => mouseX.set(Infinity)}
+              // onMouseLeave={() => mouseX.set(Infinity)}
             >
               <div className='flex h-full min-w-14 items-center rounded-l-md bg-black/[0.07] shadow-md backdrop-blur-md dark:bg-white/[0.07]'>
                 <Section.Logo
@@ -97,7 +100,7 @@ export const NavBar: React.FC<NavbarProps> = ({ session, providers }) => {
                 _setCursor={_setCursor}
               />
               <DynamicNavModules mouseX={mouseX} _setCursor={_setCursor} />
-            </motion.div>
+            </Dock>
             <NavAction
               action={_navAction}
               session={session}

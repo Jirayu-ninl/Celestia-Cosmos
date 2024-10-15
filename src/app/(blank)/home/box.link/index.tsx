@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { useUiState } from '@/store'
 import { routes } from '@routes'
 import { Sun, Moon } from '@components/icons'

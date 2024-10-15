@@ -10,7 +10,7 @@ import {
   Cart as CartIcon,
 } from '@nexel/cosmos/assets/icons'
 import { Search } from './shortcut.search'
-import { DockItem } from '../../dock'
+import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/x.width'
 
 interface ShortcutSectionProps {
   _navAction: NAV_ACTION | undefined

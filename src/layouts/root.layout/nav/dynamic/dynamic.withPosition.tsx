@@ -1,18 +1,21 @@
+import type { MotionValue } from 'framer-motion'
 import { Fragment } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { useUiState, NAV, CURSOR } from '@/store'
 import { RenderModule } from './renderModule'
 
 interface DynamicNavModulesProps {
   _nav: NAV
   _setCursor: (c: CURSOR | undefined) => void
+  mouseX: MotionValue<number>
 }
 
 export const DynamicNavModules: React.FC<DynamicNavModulesProps> = ({
   _nav,
   _setCursor,
+  mouseX,
 }) => {
   const _dynamicNav = useUiState((st) => st.dynamicNav)
 
@@ -44,7 +47,11 @@ export const DynamicNavModules: React.FC<DynamicNavModulesProps> = ({
         >
           {_dynamicNav.map((module) => (
             <Fragment key={module.type}>
-              <RenderModule module={module} _setCursor={_setCursor} />
+              <RenderModule
+                module={module}
+                _setCursor={_setCursor}
+                mouseX={mouseX}
+              />
             </Fragment>
           ))}
         </motion.div>

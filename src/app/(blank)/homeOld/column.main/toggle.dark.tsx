@@ -2,7 +2,7 @@
 
 import { useUiState } from '@/store'
 import { Moon } from '@nexel/cosmos/assets/icons/moon'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 
 export const ToggleDark = () => {
   const _onToggleDark = useUiState(useShallow((st) => st.onToggleDark))

@@ -13,6 +13,7 @@ type ImgProps = {
   objectPosition?: string
   events?: Record<string, () => void>
   blurDataURL?: string
+  quality?: number
 }
 
 export const Image = (p: ImgProps) => {
@@ -64,6 +65,7 @@ export const Image = (p: ImgProps) => {
         p.blurDataURL ??
         'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
       }
+      quality={p.quality ?? 90}
     />
   )
 }

@@ -10,7 +10,7 @@ export const UserNotification = () => {
       title: 'Celestia Network 1.0',
       content:
         'We are thrilled to announce the official launch of Celestia Network 1.0, your gateway to a decentralized and scalable Web3 experience! As a valued user, you can now explore enhanced features, seamless interactions, and the power of true decentralization. Stay tuned for more updates as we continue to innovate and evolve the network. Join us as we build the next generation of the internet!',
-      link: 'https://changelog.theiceji.com',
+      link: 'https://constella.theiceji.com/changelog/celestia',
       userId: 'theiceji',
     },
   ]

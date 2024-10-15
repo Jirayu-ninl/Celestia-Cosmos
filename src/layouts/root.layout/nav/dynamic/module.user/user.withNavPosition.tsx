@@ -1,7 +1,7 @@
 import type { Session } from 'next-auth'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { NAV_ACTION, NAV, CURSOR } from '@/store'
 // import {
 //   dynNavAnimationConfig,

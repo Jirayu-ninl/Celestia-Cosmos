@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { useAppState } from '@/store'
 import Console from './initialize.console'
 

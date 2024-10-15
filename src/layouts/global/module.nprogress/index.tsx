@@ -3,7 +3,7 @@
 
 import { useEffect } from 'react'
 import NProgress from 'nprogress'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { useUiState, CURSOR } from '@/store'
 
 type PushStateInput = [

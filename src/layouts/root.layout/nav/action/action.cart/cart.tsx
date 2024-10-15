@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useUserState } from '@/store'
-// import { useShallow } from 'zustand/react/shallow'
+// import { useShallow } from 'zustand/shallow'
 import { Icon } from '@nexel/cosmos/assets'
 import { CartItem } from './cart.item'
 

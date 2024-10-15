@@ -1,7 +1,7 @@
 import type { Session, Providers } from '@types'
 import { useState } from 'react'
 import clsx from 'clsx'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { AnimatePresence } from 'framer-motion'
 import { useUserState } from '@/store'
 import { SignInComponent } from './signIn'

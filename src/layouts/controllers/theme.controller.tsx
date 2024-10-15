@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useShallow } from 'zustand/react/shallow'
+import { useShallow } from 'zustand/shallow'
 import { useUiState } from '@/store'
 
 export const ThemeController = () => {

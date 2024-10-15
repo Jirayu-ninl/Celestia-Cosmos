@@ -1,15 +1,15 @@
 export const app = {
   NAME: 'TheIceJi Cosmos',
-  VERSION: '2024.9.2301',
-  UPDATE_DATE: 'Sep 23, 2024',
+  VERSION: '2024.10.1501',
+  UPDATE_DATE: 'Oct 15, 2024',
   SENTRY: {
     dsn: process.env.NEXT_PUBLIC_APP_COSMOS_SENTRY_DSN,
   },
   Dependencies: {
-    Celestia: '0.9',
+    Celestia: '1.0a',
     React: '18.3.1',
-    NextJs: '14.2.13',
-    ThreeJs: 'r168',
+    NextJs: '14.2.15',
+    ThreeJs: 'r169',
   },
   Functions: {
     useThree: true,

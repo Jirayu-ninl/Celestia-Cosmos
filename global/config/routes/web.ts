@@ -22,6 +22,6 @@ export const webRoutes: Route[] = [
   },
   {
     title: 'APP',
-    path: '/app',
+    path: '/dashboard',
   },
 ]

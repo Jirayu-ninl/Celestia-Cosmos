@@ -152,20 +152,20 @@ export const navSecondaryRoutes: tNavSecondaryRoutes = {
   app: {
     id: 21,
     title: 'App',
-    setBackRoute: '/app',
+    setBackRoute: '/dashboard',
     showFooter: false,
     route: [
       {
         title: 'Profile',
-        path: '/app/profile',
+        path: '/profile',
       },
       {
         title: 'Dashboard',
-        path: '/app/dashboard',
+        path: '/dashboard',
       },
       {
         title: 'Settings',
-        path: '/app/settings',
+        path: '/profile/settings',
       },
     ],
   },

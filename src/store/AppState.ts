@@ -1,6 +1,15 @@
 import type { TierResult } from 'detect-gpu'
 
+type SearchDataItem = {
+  title: string
+  path: string
+}
 export interface AppState {
   gpuTier: TierResult | null
-  onAppInit: () => Promise<void>
+  searchDataIndex: SearchDataItem[] | null
+  onAppInit: ({
+    searchDataIndex,
+  }: {
+    searchDataIndex: SearchDataItem[]
+  }) => Promise<void>
 }

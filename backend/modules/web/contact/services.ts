@@ -11,15 +11,15 @@ export const dropEmail = async ({
 }) => {
   try {
     const subscribeList: any = await ctx.prisma.celestia.findUnique({
-      where: { title: 'newsletter' },
+      where: { key: 'newsletter' },
     })
 
     if (subscribeList) {
       if (subscribeList.content) {
         await ctx.prisma.celestia.update({
-          where: { title: 'newsletter' },
+          where: { key: 'newsletter' },
           data: {
-            content: {
+            data: {
               users: [...subscribeList.content['users'], input],
             },
           },
@@ -28,8 +28,8 @@ export const dropEmail = async ({
     } else {
       await ctx.prisma.celestia.create({
         data: {
-          title: 'newsletter',
-          content: {
+          key: 'newsletter',
+          data: {
             users: [input],
           },
         },

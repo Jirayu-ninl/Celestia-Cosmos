@@ -4,10 +4,14 @@ const CSS = css`
   p {
     padding: 12px 0;
     font-size: 0.75rem;
+    line-height: 2rem;
     opacity: 0.8;
+    font-weight: light;
+    color: hsl(var(--foreground) / 0.9);
     @media (min-width: 768px) {
       padding: 20px 0;
       font-size: 1.25rem;
+      line-height: 1.75rem;
     }
   }
   strong {
@@ -16,6 +20,7 @@ const CSS = css`
   }
   b {
     font-weight: bold;
+    color: hsl(var(--foreground) / 0.8);
   }
   h2 {
     padding-top: 3rem;
@@ -30,9 +35,13 @@ const CSS = css`
   li {
     position: relative;
     font-size: 0.75rem;
+    line-height: 1.75rem;
     opacity: 0.8;
+    padding-bottom: 1rem;
+    color: hsl(var(--foreground) / 0.6);
     @media (min-width: 768px) {
       font-size: 1.25rem;
+      line-height: 1.625rem;
     }
   }
   li:before {

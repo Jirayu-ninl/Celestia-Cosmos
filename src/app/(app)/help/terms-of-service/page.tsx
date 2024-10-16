@@ -6,7 +6,7 @@ import { CSS } from '../css'
 const Page = () => {
   return (
     <>
-      <h1 className='text-3xl font-bold md:text-6xl'>Terms of Service</h1>
+      <h1 className='text-3xl font-bold md:text-6xl pt-24'>Terms of Service</h1>
       <p className='opacity-60'>Last updated: Aug 26, 2023</p>
       <hr className='mb-12 h-px w-full bg-black dark:bg-white' />
       <div className={CSS}>

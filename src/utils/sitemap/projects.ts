@@ -16,7 +16,7 @@ export const getProjects = async () => {
         projects {
           title
           slug
-          date
+          updatedAt
         }
       }
     `

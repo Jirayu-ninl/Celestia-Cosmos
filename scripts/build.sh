@@ -23,7 +23,7 @@ rm -rf pnpm-lock.yaml bun.lockb node_modules packages/**/node_modules
 rm -f "$outputFile"
 
 # Move project to WSL file system
-echo "### Moving project to WSL file system..."
+echo "### Copying project to WSL file system..."
 rm -rf "$wslDir"
 cp -r "$sourceDir" "$wslDir"
 cd "$wslDir" || exit 1

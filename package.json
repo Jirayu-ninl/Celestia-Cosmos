@@ -15,8 +15,6 @@
     "dev": "next dev -p 8989",
     "build": "next build",
     "nx:build": "nx next:build && echo 'Build complete'",
-    "test:deploy:db": "dotenv -- pnpm --filter @celestia/prisma db:generate:none",
-    "test:deploy": "pnpm run test:deploy:db && pnpm run app:build",
     "start": "next start -p 8989",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze-b": "cross-env BUNDLE_ANALYZE=both next build",

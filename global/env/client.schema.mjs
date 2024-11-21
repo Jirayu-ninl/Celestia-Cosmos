@@ -9,5 +9,4 @@ import { z } from 'zod'
 export const clientSchema = {
   NEXT_PUBLIC_GTM: z.string(),
   NEXT_PUBLIC_S3_DOWNLOAD_ENDPOINT: z.string(),
-  NEXT_PUBLIC_S3_UPLOAD_ENDPOINT: z.string(),
 }

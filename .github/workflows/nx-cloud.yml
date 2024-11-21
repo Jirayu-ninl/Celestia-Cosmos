@@ -39,7 +39,6 @@ jobs:
         env:
           NEXT_PUBLIC_GTM: "dummy-gtm-id"
           NEXT_PUBLIC_S3_DOWNLOAD_ENDPOINT: "https://example-s3-download-endpoint.com"
-          NEXT_PUBLIC_S3_UPLOAD_ENDPOINT: "https://example-s3-upload-endpoint.com"
           NEXTAUTH_SECRET: "dummy-nextauth-secret"
           NEXTAUTH_URL: "https://example-app-url.com"
           TOKEN: "dummy-token"

@@ -20,8 +20,4 @@ export const app = {
   user: {
     rateSwap: 59.2,
   },
-  s3: {
-    bucketName: process.env.NEXT_PUBLIC_S3_UPLOAD_ENDPOINT ?? 'celestia',
-    endpoint: process.env.NEXT_PUBLIC_S3_DOWNLOAD_ENDPOINT,
-  },
 }

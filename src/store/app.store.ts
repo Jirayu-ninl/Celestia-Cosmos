@@ -5,9 +5,10 @@ import { getGPUTier } from 'detect-gpu'
 
 export const useAppState = create<AppState>((set, get) => ({
   gpuTier: null,
-  onAppInit: async () => {
+  searchDataIndex: null,
+  onAppInit: async ({ searchDataIndex }) => {
     const gpuTier = await getGPUTier()
-    set({ gpuTier: gpuTier })
+    set({ gpuTier: gpuTier, searchDataIndex })
     console.log({ status: 'set GPU complete', GPUdata: gpuTier })
   },
 }))

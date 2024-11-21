@@ -1,12 +1,12 @@
+import { createTRPCRouter } from '../trpc'
 import { exampleRouter } from './example'
 import { userRouter } from './user'
-import { contactRouter } from './contact'
-import { createTRPCRouter } from '../trpc'
+import { webRouter } from './web'
 
 const router = createTRPCRouter({
   example: exampleRouter,
   user: userRouter,
-  contact: contactRouter,
+  web: webRouter,
 })
 
 export const AppController = { router }

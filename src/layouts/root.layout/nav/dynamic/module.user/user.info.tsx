@@ -39,10 +39,10 @@ export const UserInfo: React.FC<UserInfoProps> = ({
             <Image
               src={session.user.image || '/user/default/profile.png'}
               alt='user profile'
-              unoptimized
+              fill
             />
           </div>
-          <div className='grow pl-2 whitespace-nowrap'>
+          <div className='grow whitespace-nowrap pl-2'>
             <p className='text-sm font-bold'>{name}</p>
             <p className='-mt-px text-xs opacity-60'>@{username}</p>
           </div>

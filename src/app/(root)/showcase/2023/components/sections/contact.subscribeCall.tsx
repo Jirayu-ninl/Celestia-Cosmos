@@ -4,15 +4,15 @@ import { prisma } from '@database'
 const subscribeCall = async (data: { email: string }) => {
   try {
     const subscribeList: any = await prisma.celestia.findUnique({
-      where: { title: 'newsletter' },
+      where: { key: 'newsletter' },
     })
 
     if (subscribeList) {
       if (subscribeList.content) {
         await prisma.celestia.update({
-          where: { title: 'newsletter' },
+          where: { key: 'newsletter' },
           data: {
-            content: {
+            data: {
               users: [...subscribeList.content['users'], data.email],
             },
           },
@@ -21,8 +21,8 @@ const subscribeCall = async (data: { email: string }) => {
     } else {
       await prisma.celestia.create({
         data: {
-          title: 'newsletter',
-          content: {
+          key: 'newsletter',
+          data: {
             users: [data.email],
           },
         },

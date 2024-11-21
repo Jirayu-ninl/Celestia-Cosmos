@@ -38,10 +38,10 @@ declare module 'next-auth' {
 
 export const authOptions: NextAuthOptions | { adapter: any } = {
   pages: {
-    signIn: '/app',
-    signOut: '/app',
-    error: '/app',
-    newUser: '/app/profile?step=start',
+    signIn: '/profile',
+    signOut: '/portal',
+    error: '/portal',
+    newUser: '/profile/settings?step=start',
   },
   // cookies: {
   //   sessionToken: {

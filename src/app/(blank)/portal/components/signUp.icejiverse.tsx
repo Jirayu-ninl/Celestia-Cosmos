@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 import clsx from 'clsx'
@@ -17,6 +17,12 @@ const SignUpIceJiVerse = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()
   // const log = clientLog()
   const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (window.location.hash === '#_=_') {
+      setIsLoading(true)
+    }
+  }, [window.location.hash, setIsLoading, isLoading])
 
   const { mutateAsync } = trpc.user.portal.signup.useMutation({
     onMutate: () => {

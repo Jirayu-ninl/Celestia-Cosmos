@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { NextAuthOptions, DefaultSession, DefaultUser } from 'next-auth'
+import type { AuthOptions, DefaultSession, DefaultUser } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { getServerSession } from 'next-auth'
+import { headers } from 'next/headers'
 
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
@@ -19,6 +20,7 @@ declare module 'next-auth' {
     balance: number
     metadata: any
   }
+
   interface Session extends DefaultSession {
     user: {
       id: string
@@ -36,7 +38,7 @@ declare module 'next-auth' {
 // const cookiePrefix = useSecureCookies ? '__Secure-' : ''
 // const hostName = new URL(env.NEXTAUTH_URL).hostname
 
-export const authOptions: NextAuthOptions | { adapter: any } = {
+export const authOptions: AuthOptions = {
   pages: {
     signIn: '/profile',
     signOut: '/portal',
@@ -56,7 +58,7 @@ export const authOptions: NextAuthOptions | { adapter: any } = {
   //   },
   // },
   callbacks: {
-    async signIn({ user, profile }) {
+    signIn: async ({ user, profile }) => {
       if (!profile || !profile.email) {
         console.error('Error updating user: no profile email')
         return false
@@ -82,7 +84,32 @@ export const authOptions: NextAuthOptions | { adapter: any } = {
     },
     // signIn: async ({ user, account }) => SignInProvider(user, account),
   },
-  adapter: PrismaAdapter(prisma),
+  events: {
+    signIn: async ({ user }) => {
+      const activeSession = await prisma.session.findFirst({
+        where: {
+          userId: user.id,
+        },
+        orderBy: {
+          expires: 'desc',
+        },
+      })
+      if (activeSession) {
+        const headersList = headers()
+        const ip = (headersList.get('x-forwarded-for') ?? '').split(',')[0]
+        const userAgent = headersList.get('user-agent') || 'Unknown user-agent'
+
+        await prisma.session.update({
+          where: { id: activeSession.id },
+          data: {
+            ipAddress: ip,
+            userAgent: userAgent,
+          },
+        })
+      }
+    },
+  },
+  adapter: PrismaAdapter(prisma) as AuthOptions['adapter'],
   providers: [
     GoogleProvider({
       clientId: env.AUTH_GOOGLE_CLIENT_ID,

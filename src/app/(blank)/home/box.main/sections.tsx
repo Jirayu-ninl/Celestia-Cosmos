@@ -30,7 +30,7 @@ export const Section = ({ title, value }: { title: string; value: Data[] }) => {
             >
               <button className='Anim AnimTranslate-4 flex h-16 items-center rounded-md border border-foreground/30 bg-foreground/5 px-3 text-left opacity-50 backdrop-blur-lg hover:bg-primary hover:text-background hover:opacity-100 hover:shadow-lg el:h-24 el:px-8'>
                 {v.imgUrl && (
-                  <div className='mr-2 aspect-square h-10 rounded-full'>
+                  <div className='mr-2 aspect-square h-10 rounded-md overflow-hidden'>
                     <img
                       src={v.imgUrl}
                       alt={v.title}

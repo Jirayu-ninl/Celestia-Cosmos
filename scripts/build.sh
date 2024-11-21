@@ -43,7 +43,7 @@ mv ".env.prod" ".next/standalone/.env"
 cd ".next/standalone" || exit 1
 
 echo "### Compressing..."
-7z a -t7z "$outputFile" *
+7z a -t7z "$outputFile" .next .env *
 echo "### Compression complete: $outputFile"
 mv "$outputFile" "$sourceDir/$outputFile"
 

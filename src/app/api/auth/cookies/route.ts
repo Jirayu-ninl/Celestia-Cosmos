@@ -1,7 +1,7 @@
 // import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { setResponse as setRes } from '@nexel/nextjs/utils/server/response.status'
-import cookie from 'cookie'
+import { serialize } from 'cookie'
 
 const POST = async (request: Request) => {
   const req = await request.json()
@@ -15,7 +15,7 @@ const POST = async (request: Request) => {
       return new NextResponse(res, {
         status: resCode,
         headers: {
-          'Set-Cookie': cookie.serialize(cookies.key, cookies.value, {
+          'Set-Cookie': serialize(cookies.key, cookies.value, {
             httpOnly: true,
             secure: true,
             sameSite: 'lax',

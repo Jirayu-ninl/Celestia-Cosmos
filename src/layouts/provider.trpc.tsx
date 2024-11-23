@@ -1,12 +1,11 @@
 'use client'
 
-import type { Query } from '@tanstack/react-query'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { httpBatchLink, getFetch, loggerLink } from '@trpc/client'
+import { httpBatchLink, loggerLink } from '@trpc/client'
 import superjson from 'superjson'
 import { useState } from 'react'
-
 import { trpc } from '@trpc'
+import { invalidationRules } from '@config/config.trpc'
 
 const getBaseUrl = () => {
   if (typeof window !== 'undefined') return ''
@@ -16,21 +15,6 @@ const getBaseUrl = () => {
   if (process.env.RENDER_INTERNAL_HOSTNAME)
     return `http://${process.env.RENDER_INTERNAL_HOSTNAME}:${process.env.PORT}`
   return `http://localhost:${process.env.PORT ?? 8989}`
-}
-
-type rules = {
-  invalidateAll: boolean
-  exclude?: string[] // Exclude specific procedures
-  includeOnly?: string[] // Include specific procedures
-}
-
-const INVALIDATION_RULES: Record<string, rules> = {
-  user: {
-    invalidateAll: true,
-  },
-  data: {
-    invalidateAll: true,
-  },
 }
 
 export const TrpcProvider = (p: { children: React.ReactNode }) => {
@@ -49,7 +33,7 @@ export const TrpcProvider = (p: { children: React.ReactNode }) => {
                 await queryClient.invalidateQueries({
                   predicate: (query) => {
                     const [root, procedure] = query.queryKey as [string, string]
-                    const rules = INVALIDATION_RULES[root]
+                    const rules = invalidationRules[root]
                     if (!rules) return false
                     if (rules.invalidateAll) return true
                     if (rules.exclude?.includes(procedure)) return false

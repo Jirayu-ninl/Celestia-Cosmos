@@ -32,6 +32,7 @@
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
       "@config": ["global/config"],
+      "@config/*": ["global/config/*"],
       "@constants": ["global/constants"],
       "@database": ["backend/database"],
       "@env": ["global/env.mjs"],

@@ -34,7 +34,7 @@ export const Shortcut: React.FC<ShortcutSectionProps> = ({
       <motion.div className='flex h-full items-end fill-foreground pb-4 [&>div]:mx-2'>
         <DockItem
           mouseX={mouseX}
-          width={112}
+          width={136}
           className='hidden md:block'
           onClick={() => _onToggleModal(MODAL.SEARCH)}
         >

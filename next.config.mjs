@@ -90,10 +90,32 @@ const nextConfig = {
   async headers() {
     const headers = [
       {
+        // Public API routes - allow access from anywhere
         source: '/api/public/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Origin', value: '*' }, // Allow all origins for public API
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET,DELETE,PATCH,POST,PUT',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value:
+              'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+          },
+        ],
+      },
+      {
+        // Private API routes - restrict to your domain and subdomains
+        source: '/api/((?!public/).+)',
+        headers: [
+          { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value:
+              'https://theiceji.com, https://app.theiceji.com, https://admin.theiceji.com',
+          },
           {
             key: 'Access-Control-Allow-Methods',
             value: 'GET,DELETE,PATCH,POST,PUT',
@@ -110,7 +132,40 @@ const nextConfig = {
     headers.push({
       source: '/:path*',
       headers: [
-        { key: 'X-Frame-Options', value: 'DENY' },
+        { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'X-XSS-Protection', value: '1; mode=block' },
+        { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+        {
+          key: 'Strict-Transport-Security',
+          value: 'max-age=31536000; includeSubDomains; preload',
+        },
+        {
+          key: 'Feature-Policy',
+          value:
+            "camera 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'; " +
+            "accelerometer 'self'; geolocation 'self'; gyroscope 'self'",
+        },
+        {
+          key: 'Permissions-Policy',
+          value:
+            'camera=(), magnetometer=(), microphone=(), payment=(), usb=(), ' +
+            'accelerometer=(self), geolocation=(self), gyroscope=(self)',
+        },
+        {
+          key: 'Content-Security-Policy',
+          value: [
+            "default-src 'self' *.theiceji.com",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Keep if you need dynamic JavaScript
+            "style-src 'self' 'unsafe-inline'",
+            "img-src 'self' data: https:",
+            "font-src 'self' data:",
+            "connect-src 'self' *.theiceji.com",
+            "frame-ancestors 'self'",
+            "base-uri 'self'",
+            "form-action 'self'",
+          ].join('; '),
+        },
       ],
     })
 

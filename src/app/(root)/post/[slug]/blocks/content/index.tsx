@@ -1,5 +1,5 @@
 import type { PostBlock } from '@types'
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 import clsx from 'clsx'
 import { Richtext, Heading } from '../common'
 

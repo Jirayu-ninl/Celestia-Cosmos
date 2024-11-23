@@ -1,5 +1,5 @@
 import { MarqueeBlockProps } from './marquee.common'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { AutoMarquee } from './marquee.auto'
 import { ScrollingMarquee } from './marquee.scrolling'
 

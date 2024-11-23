@@ -2,7 +2,7 @@
 import { Content, ImageContent, TextContent } from '@types'
 import Image from 'next/image'
 import clsx from 'clsx'
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 
 const Text = ({ block }: { block: TextContent[] }) => {
   return (

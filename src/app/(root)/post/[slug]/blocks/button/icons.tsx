@@ -1,4 +1,4 @@
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 import { Download, ExternalLink, FileImage, File } from '@components/icons'
 import { FaGithub } from 'react-icons/fa6'
 

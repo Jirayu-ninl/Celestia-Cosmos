@@ -1,6 +1,6 @@
 import Client from './page.client'
 import * as FALLBACK from '@components/post/error'
-import { FETCH } from '@/enums'
+import { FETCH } from '@/enums/server'
 import { getProjects } from '@/utils'
 
 export const metadata = {

@@ -3,7 +3,7 @@ import type { GetProject } from '@types'
 import { gql } from 'graphql-request'
 import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'
 import { env } from '@env'
-import { FETCH } from '@/enums'
+import { FETCH } from '@/enums/server'
 
 // import { MockProject } from '@/mocks/project.mock'
 

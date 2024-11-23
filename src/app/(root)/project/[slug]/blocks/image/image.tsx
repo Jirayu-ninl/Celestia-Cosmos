@@ -1,5 +1,5 @@
 import { ImageBlockProps } from './image.common'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { BannerImage } from './banner'
 import { MobileMockupImages } from './mobileMockup'
 import { Gallery4Images } from './gallery4'

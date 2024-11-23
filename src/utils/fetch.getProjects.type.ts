@@ -3,7 +3,8 @@ import type { Locales } from '@types'
 import { gql } from 'graphql-request'
 import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'
 import { env } from '@env'
-import { FETCH, PROJECT } from '@/enums'
+import { FETCH } from '@/enums/server'
+import { PROJECT } from '@/enums/content'
 
 const getProjectsByType = async (
   {

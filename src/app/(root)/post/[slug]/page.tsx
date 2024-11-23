@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { Metadata } from 'next'
 import type { GetPostResult } from '@types'
-import { FETCH } from '@/enums'
+import { FETCH } from '@/enums/server'
 import { gql } from 'graphql-request'
 // import clsx from 'clsx'
 import * as FALLBACK from '@components/post/error'

@@ -1,6 +1,6 @@
 'use client'
 
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { FullHeader } from './header.full'
 
 interface HeaderProps {

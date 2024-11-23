@@ -1,5 +1,5 @@
 import type { ProjectBlock } from '@types'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { ContentBlock } from './content'
 import { ImageBlock } from './image'
 import { ColorBlock } from './color'

@@ -1,5 +1,5 @@
 import { GridBlockProps } from './grid.common'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { MinimalGrid } from './grid.minimal'
 import { CardGrid } from './grid.card'
 

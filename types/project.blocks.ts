@@ -1,5 +1,5 @@
 import type { Raw } from '@types'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 
 export type RichText = {
   html: string

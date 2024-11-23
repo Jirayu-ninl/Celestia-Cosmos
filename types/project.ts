@@ -1,5 +1,5 @@
 import type { Block } from './project.blocks'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 export * as ProjectBlock from './project.blocks'
 
 export * from './project.utils'

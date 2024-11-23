@@ -3,7 +3,7 @@ import type { GetPost } from '@types'
 import { gql } from 'graphql-request'
 import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'
 import { env } from '@env'
-import { FETCH } from '@/enums'
+import { FETCH } from '@/enums/server'
 // import { MockPost } from '@/mocks/post.mock'
 
 export const getPost: GetPost = async ({ slug, locales = 'en' }, isPreview) => {

@@ -3,7 +3,7 @@ import type { Locales } from '@types'
 import { gql } from 'graphql-request'
 import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'
 import { env } from '@env'
-import { FETCH } from '@/enums'
+import { FETCH } from '@/enums/server'
 
 export const getPosts = async (
   { locales }: { locales: Locales } = { locales: 'en' },

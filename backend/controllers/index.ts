@@ -1,10 +1,10 @@
 import { createTRPCRouter } from '../trpc'
-import { exampleRouter } from './example'
+import { debuggerRouter } from './debugger'
 import { userRouter } from './user'
 import { webRouter } from './web'
 
 export const router = createTRPCRouter({
-  example: exampleRouter,
+  debugger: debuggerRouter,
   user: userRouter,
   web: webRouter,
 })

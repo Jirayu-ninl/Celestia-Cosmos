@@ -1,31 +1,74 @@
 'use client'
 
-import { trpc } from '@trpc'
 import type { Session } from 'next-auth'
+import { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { trpc } from '@trpc'
 
 function Client(p: { session: Session | null }): JSX.Element {
-  const hello = trpc.example.hello.useQuery({ text: 'tRPC' })
-
-  const { data: secretMessage } = trpc.example.getSecretMessage.useQuery(
+  const clientQuery = trpc.debugger.testQuery.useQuery({ text: 'COSMOS' })
+  const clientMutation = trpc.debugger.testMutation.useMutation({
+    onSuccess: (data) => {
+      if (data && data.success && data.message) {
+        toast.success('Success: ' + data.message)
+        return
+      }
+      toast.warn('No data recieved')
+    },
+    onError: () => {
+      toast.error('Error occurred during mutation')
+    },
+  })
+  const { data: secretMessage } = trpc.debugger.session.useQuery(
     undefined, // no input
     { enabled: p.session?.user !== undefined },
   )
+  const [trpcServerData, setTrpcServerData] = useState<string | null>(null)
 
-  if (hello.data === undefined) {
-    console.log('name.data undefined')
-    return (
-      <>
-        <p>did not work</p>
-      </>
-    )
+  useEffect(() => {
+    const testTrpcServer = () => {
+      fetch('/api/debug/trpc')
+        .then((res) => {
+          console.log({ res })
+          setTrpcServerData('Server caller is working')
+        })
+        .catch((err) => setTrpcServerData('Failed to fetch api'))
+    }
+    if (!trpcServerData) {
+      testTrpcServer()
+    }
+  }, [trpcServerData])
+
+  const onTestMutation = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    clientMutation.mutate({ text: e.currentTarget.text.value })
   }
 
   return (
     <>
-      <p>{hello.data!.greeting} from client</p>
-      <p>
-        {secretMessage ? <span>{secretMessage}</span> : <span>No secret</span>}
-      </p>
+      <h6 className='mb-2 text-xl'>Client:</h6>
+      <div className='w-full space-y-1 rounded-md bg-foreground/5 p-4 text-center'>
+        <p>
+          {clientQuery.isLoading
+            ? 'Loading..'
+            : clientQuery.data
+              ? clientQuery.data.message
+              : 'Client query not working'}
+        </p>
+        <form onSubmit={onTestMutation}>
+          <input
+            type='text'
+            name='text'
+            placeholder='Test mutation'
+            className='rounded-md bg-foreground/5 px-2 py-1 text-center'
+          />
+        </form>
+        {secretMessage ? <p>{secretMessage}</p> : <p>No session</p>}
+      </div>
+      <h6 className='mb-2 mt-6 text-xl'>Server:</h6>
+      <div className='w-full space-y-1 rounded-md bg-foreground/5 p-4 text-center'>
+        <p>{trpcServerData ? trpcServerData : 'Loading..'}</p>
+      </div>
     </>
   )
 }

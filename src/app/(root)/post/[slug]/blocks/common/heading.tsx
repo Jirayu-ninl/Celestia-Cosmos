@@ -1,4 +1,4 @@
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 
 export const Heading = ({
   title,

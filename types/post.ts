@@ -1,5 +1,5 @@
 import type { Block } from './post.blocks'
-// import { POST } from '@/enums'
+// import { POST } from '@/enums/content'
 export * as PostBlock from './post.blocks'
 export * from './post.utils'
 

@@ -1,5 +1,5 @@
 import { ColorBlockProps } from './palette.common'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { DefaultColorPalette } from './palette.default'
 import { MinimalColorPalette } from './palette.minimal'
 import { CardColorPalette } from './palette.card'

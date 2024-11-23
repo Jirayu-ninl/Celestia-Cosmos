@@ -1,4 +1,4 @@
-import type { AppRouter } from '../controllers'
+import type { Router } from '../controllers'
 import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
@@ -20,5 +20,5 @@ export const t = initTRPC.context<typeof createTRPCContext>().create({
 
 export const createTRPCRouter = t.router
 
-export type Inputs = inferRouterInputs<AppRouter>
-export type Outputs = inferRouterOutputs<AppRouter>
+export type Inputs = inferRouterInputs<Router>
+export type Outputs = inferRouterOutputs<Router>

@@ -1,16 +1,17 @@
 'use server'
 import { prisma } from '@database'
+import { WEB } from '@/enums/database'
 
 const subscribeCall = async (data: { email: string }) => {
   try {
     const subscribeList: any = await prisma.celestia.findUnique({
-      where: { key: 'newsletter' },
+      where: { key: WEB.NEWS_LETTER },
     })
 
     if (subscribeList) {
       if (subscribeList.content) {
         await prisma.celestia.update({
-          where: { key: 'newsletter' },
+          where: { key: WEB.NEWS_LETTER },
           data: {
             data: {
               users: [...subscribeList.content['users'], data.email],
@@ -21,7 +22,7 @@ const subscribeCall = async (data: { email: string }) => {
     } else {
       await prisma.celestia.create({
         data: {
-          key: 'newsletter',
+          key: WEB.NEWS_LETTER,
           data: {
             users: [data.email],
           },

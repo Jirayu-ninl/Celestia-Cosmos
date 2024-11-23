@@ -1,6 +1,6 @@
 import type { Locales } from './i18n'
 import type { Post } from './post'
-import { FETCH } from '@/enums'
+import { FETCH } from '@/enums/server'
 
 export type GetPostResult =
   | {

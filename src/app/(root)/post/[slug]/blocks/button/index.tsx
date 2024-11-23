@@ -1,5 +1,5 @@
 import { ButtonBlockProps } from './button.common'
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 import clsx from 'clsx'
 import { ButtonItem } from './button.item'
 

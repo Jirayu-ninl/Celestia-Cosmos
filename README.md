@@ -18,13 +18,14 @@ Consists of
 - **Celestia: Cosmos** - main WebApp
 - **Celestia: Nebula** - monitoring and controller
 - **Celestia: Nexus** - Web3, Blockchain portal
-- **Celestia: Stella** - main server
-- **Celestia: Astra** - analytics server, and background process
-- **Celestia: Station** - shop and marketplace
-- **Celestia: Outpost** - for demo projects
-- **Celestia: Interlink** - communication, and queuing server
-- **Celestia: Stargate** - authentication server
-- **Celestia: Orion** - assets, and data center
+- **Celestia: Stella** - Main server
+- **Celestia: Astra** - Analytics server, and background process
+- **Celestia: Interlink** - Communication, and queuing server
+- **Celestia: Stargate** - Authentication server
+- **Celestia: Orion** - Assets, and data center
+- **Celestia: Station** - Shop and marketplace
+- **Celestia: Outpost** - Demo projects
+- **Celestia: Constella** - Docs, changelog
 
 see at: [**TheIceJi**](https://theiceji.com)
 

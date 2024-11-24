@@ -431,19 +431,5 @@ export const MockPost: Post = {
       ],
     },
   ],
-  oldContent: {
-    raw: {
-      children: [
-        {
-          type: 'paragraph',
-          children: [
-            {
-              text: '',
-            },
-          ],
-        },
-      ],
-    },
-  },
   relatedPosts: [],
 }

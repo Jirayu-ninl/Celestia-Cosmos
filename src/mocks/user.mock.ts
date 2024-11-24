@@ -3,6 +3,7 @@ import type { Session } from '@types'
 export const UserMockData: Session = {
   user: {
     id: 'theiceji',
+    username: 'theiceji',
     name: 'TheIceJi',
     role: 'SUPER_ADMIN',
     plan: 'ELITE',

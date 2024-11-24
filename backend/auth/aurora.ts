@@ -10,6 +10,7 @@ import GithubProvider from 'next-auth/providers/github'
 // import DiscordProvider from 'next-auth/providers/discord'
 import { env } from '@env'
 import { prisma } from '../database'
+import { TIME } from '@/utils/time'
 
 declare module 'next-auth' {
   interface User extends DefaultUser {
@@ -110,6 +111,10 @@ export const authOptions: AuthOptions = {
     },
   },
   adapter: PrismaAdapter(prisma) as AuthOptions['adapter'],
+  session: {
+    strategy: 'database',
+    maxAge: TIME.MONTH,
+  },
   providers: [
     GoogleProvider({
       clientId: env.AUTH_GOOGLE_CLIENT_ID,

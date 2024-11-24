@@ -1,5 +1,5 @@
 import { POST } from '@/enums/content'
-import type { Raw } from './content'
+import type { Raw } from '../content'
 
 export type RichText = {
   html?: string

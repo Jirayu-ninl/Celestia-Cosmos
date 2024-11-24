@@ -17,8 +17,8 @@ export const Portal = ({ providers }: { providers: Providers | null }) => {
   const [_case, _setCase] = useState<CASE>(CASE.SIGN_IN)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const [_setUser, _notifications] = useUserState(
-    useShallow((st) => [st.setUser, st.notifications]),
+  const [_onSetUser, _notifications] = useUserState(
+    useShallow((st) => [st.onSetUser, st.notifications]),
   )
 
   return (

@@ -9,18 +9,18 @@ import {
 import { BaseLogger } from './base'
 
 export class SentryLogger extends BaseLogger {
-  private static instance: SentryLogger
+  private static _instance: SentryLogger
 
   protected constructor() {
     super()
   }
 
   public static getInstance(): SentryLogger {
-    if (!SentryLogger.instance) {
-      SentryLogger.instance = new SentryLogger()
+    if (!SentryLogger._instance) {
+      SentryLogger._instance = new SentryLogger()
     }
 
-    return SentryLogger.instance
+    return SentryLogger._instance
   }
 
   protected logToSystem(

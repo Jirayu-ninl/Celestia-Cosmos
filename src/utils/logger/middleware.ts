@@ -1,7 +1,20 @@
 import type { NextRequest } from 'next/server'
+import type { IMiddlewareLogger } from '@/utils/logger/types'
 import { SentryLogger } from './implement'
 
-class MiddlewareLogger extends SentryLogger {
+class MiddlewareLogger extends SentryLogger implements IMiddlewareLogger {
+  private static instance: MiddlewareLogger
+
+  private constructor() {
+    super()
+  }
+
+  public static getInstance(): MiddlewareLogger {
+    if (!MiddlewareLogger.instance) {
+      MiddlewareLogger.instance = new MiddlewareLogger()
+    }
+    return MiddlewareLogger.instance
+  }
   public request(request: NextRequest): void {
     if (this.isDevelopment) {
       this.debug('Incoming request', {

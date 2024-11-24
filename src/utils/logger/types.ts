@@ -1,4 +1,4 @@
-// import type { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error'
 
@@ -9,4 +9,8 @@ export interface ILogger {
   info(message: string, data?: LogData): void
   warn(message: string, data?: LogData): void
   error(message: string, error: Error | unknown, extra?: LogData): void
+}
+
+export interface IMiddlewareLogger extends ILogger {
+  request(request: NextRequest): void
 }

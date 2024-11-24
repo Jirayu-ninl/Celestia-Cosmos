@@ -1,14 +1,15 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import { protectedRoutes } from '@config/middleware'
+import { middlewareLogger as logger } from '@/utils/logger'
 import { validateSession, isValidSession } from './session'
 // import { applySecurityHeaders } from './security'
 import { checkRateLimit } from './rateLimit'
 import {
   addCustomHeaders,
   redirectToLogin,
-  logRequest,
-  logError,
+  // logRequest,
+  // logError,
 } from './utils'
 
 export async function middleware(request: NextRequest) {
@@ -45,12 +46,16 @@ export async function middleware(request: NextRequest) {
     }
 
     addCustomHeaders(response, requestStartTime)
-    logRequest(request, sessionData)
+    logger.request(request)
 
     return response
   } catch (error) {
-    console.error('Middleware error:', error)
-    logError(error, request)
+    logger.error('Middleware error', error, {
+      request: {
+        url: request.url,
+        method: request.method,
+      },
+    })
     return new NextResponse('Internal Server Error', { status: 500 })
   }
 }

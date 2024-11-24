@@ -68,7 +68,7 @@ export const AppInfoModal = ({
               </Link>
               {' | '}
               <Link
-                href='https://nebula.theiceji.com/status'
+                href='https://nebula.theiceji.com'
                 className='cursor-pointer text-2xs font-light opacity-60 hover:opacity-100 md:text-base'
                 onClick={() => _onClearModal()}
               >

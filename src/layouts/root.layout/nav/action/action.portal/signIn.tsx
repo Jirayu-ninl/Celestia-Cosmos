@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { trpc } from '@trpc'
-import { form } from '@/utils'
+import { form } from '@/utils/view'
 
 export const SignInComponent = ({
   isLoading,

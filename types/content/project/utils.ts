@@ -1,4 +1,4 @@
-import type { Locales } from './i18n'
+import type { Locales } from '../i18n'
 import type { Project } from './project'
 import { FETCH } from '@/enums/server'
 

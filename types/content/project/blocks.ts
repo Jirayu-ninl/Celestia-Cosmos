@@ -1,4 +1,4 @@
-import type { Raw } from '@types'
+import type { Raw } from '../content'
 import { PROJECT } from '@/enums/content'
 
 export type RichText = {

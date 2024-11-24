@@ -1,7 +1,5 @@
-import type { Block } from './post.blocks'
+import type { Block } from './blocks'
 // import { POST } from '@/enums/content'
-export * as PostBlock from './post.blocks'
-export * from './post.utils'
 
 export type relatedPost = {
   title: string

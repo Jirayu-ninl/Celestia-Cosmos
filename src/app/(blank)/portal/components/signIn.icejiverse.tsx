@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 import clsx from 'clsx'
 import { trpc } from '@trpc'
-import { form } from '@/utils'
+import { form } from '@/utils/view'
 
 const SignInIceJiVerse = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()

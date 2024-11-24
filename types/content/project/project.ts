@@ -1,8 +1,5 @@
-import type { Block } from './project.blocks'
+import type { Block } from './blocks'
 import { PROJECT } from '@/enums/content'
-export * as ProjectBlock from './project.blocks'
-
-export * from './project.utils'
 
 export type ProjectInfo = {
   infoType: `${PROJECT.INFO_TYPE}`

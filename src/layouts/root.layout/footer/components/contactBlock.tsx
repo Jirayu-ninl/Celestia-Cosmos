@@ -1,7 +1,7 @@
 // import { useShallow } from 'zustand/shallow'
 import { useUiState, CURSOR } from '@/store'
 import { contacts } from '@config'
-import { getContactObject } from '@/utils/contacts'
+import { getContactObject } from '@/utils/view'
 import SocialLinkIcon from './socialLinkIcon'
 
 const CreditBlock = () => {

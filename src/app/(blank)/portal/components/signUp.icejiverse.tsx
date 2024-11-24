@@ -11,7 +11,7 @@ import {
   email as emailValidator,
   password as passwordValidator,
 } from '@nexel/nextjs/utils/validator'
-import { form } from '@/utils'
+import { form } from '@/utils/view'
 
 const SignUpIceJiVerse = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()

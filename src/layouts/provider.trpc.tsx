@@ -5,7 +5,7 @@ import { httpBatchLink, loggerLink } from '@trpc/client'
 import superjson from 'superjson'
 import { useState } from 'react'
 import { trpc } from '@trpc'
-import { invalidationRules } from '@config/config.trpc'
+import { invalidationRules } from '@config/server'
 
 const getBaseUrl = () => {
   if (typeof window !== 'undefined') return ''

@@ -1,6 +1,6 @@
 export const app = {
   NAME: 'TheIceJi Cosmos',
-  VERSION: '2024.11.2501',
+  VERSION: '2024.11.2502',
   UPDATE_DATE: 'Nov 25, 2024',
   SENTRY: {
     dsn: process.env.NEXT_PUBLIC_APP_COSMOS_SENTRY_DSN,

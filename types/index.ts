@@ -1,4 +1,5 @@
 export * from './i18n'
+export * from './middleware'
 export * from './auth'
 export * from './cart'
 export * from './notification'

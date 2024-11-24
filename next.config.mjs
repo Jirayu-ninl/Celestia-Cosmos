@@ -155,14 +155,17 @@ const nextConfig = {
         {
           key: 'Content-Security-Policy',
           value: [
-            "default-src 'self' *.theiceji.com",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Keep if you need dynamic JavaScript
-            "style-src 'self' 'unsafe-inline'",
-            "img-src 'self' data: https:",
-            "font-src 'self' data:",
-            "connect-src 'self' *.theiceji.com",
-            "frame-ancestors 'self'",
-            "base-uri 'self'",
+            // Allow everything from anywhere
+            "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:",
+            // Specific rules for different content types
+            "script-src * 'unsafe-inline' 'unsafe-eval'",
+            "style-src * 'unsafe-inline'",
+            'img-src * data: blob:',
+            'font-src * data:',
+            'connect-src *',
+            'media-src *',
+            'frame-src *',
+            // Still restrict form submissions to your domain for security
             "form-action 'self'",
           ].join('; '),
         },

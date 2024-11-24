@@ -1,4 +1,4 @@
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 import { Heading } from '../common'
 import { ImageBlockProps } from './image.common'
 import { DefaultImage } from './image.default'

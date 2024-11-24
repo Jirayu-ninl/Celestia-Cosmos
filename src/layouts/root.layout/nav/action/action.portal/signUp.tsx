@@ -9,7 +9,7 @@ import {
   email as emailValidator,
   password as passwordValidator,
 } from '@nexel/nextjs/utils/validator'
-import { form } from '@/utils'
+import { form } from '@/utils/view'
 
 export const SignUpComponent = ({
   isLoading,

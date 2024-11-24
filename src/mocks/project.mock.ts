@@ -1,6 +1,6 @@
 // cSpell: disable
 import type { Project } from '@types'
-// import { PROJECT } from '@/enums'
+// import { PROJECT } from '@/enums/content'
 
 export const MockProject: Project = {
   title: 'VitalLink',
@@ -50,6 +50,14 @@ export const MockProject: Project = {
     industry: 'Health Tech',
     date: '2022-04-12',
     client: 'VitalLink Co',
+    clientUrl: null,
+    team: null,
+    teamUrl: null,
+    type: null,
+    appTarget: null,
+    location: null,
+    locationMap: null,
+    releaseDate: null,
   },
   blocks: [
     {

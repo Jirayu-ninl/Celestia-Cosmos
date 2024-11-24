@@ -1,6 +1,6 @@
 // cSpell: disable
 import type { Post } from '@types'
-import { POST } from '@/enums'
+import { POST } from '@/enums/content'
 
 export const MockPost: Post = {
   title: 'FILM Pipeline Part 3: Post-production',
@@ -431,19 +431,5 @@ export const MockPost: Post = {
       ],
     },
   ],
-  oldContent: {
-    raw: {
-      children: [
-        {
-          type: 'paragraph',
-          children: [
-            {
-              text: '',
-            },
-          ],
-        },
-      ],
-    },
-  },
   relatedPosts: [],
 }

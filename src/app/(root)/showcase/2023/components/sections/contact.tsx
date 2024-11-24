@@ -1,14 +1,23 @@
 import { useState } from 'react'
 import { Text } from '@react-three/drei'
 import { toast } from 'react-toastify'
-import { subscribeCall } from './contact.subscribeCall'
 import { Send } from '@nexel/cosmos/assets/icons'
+// import { trpc } from '@trpc'
+import { subscribeCall } from './contact.subscribeCall'
 
 const HTML = () => {
   const [email, setEmail] = useState('')
+  // const { mutate: subscription } = trpc.web.contact.dropEmail.useMutation({
+  //   onSuccess: () => {
+  //     toast('Drop an email successfully')
+  //   },
+  //   onError: () => {
+  //     toast.error('Drop an email failed, server error')
+  //   },
+  // })
 
-  const subscription = () => {
-    subscribeCall({ email })
+  const subscribe = async () => {
+    await subscribeCall({ email })
   }
 
   return (
@@ -19,11 +28,11 @@ const HTML = () => {
           onSubmit={async (event) => {
             event.preventDefault()
             try {
-              subscription()
-              toast('Drop an email')
-            } catch (e) {
-              toast.error("Can't send, server error")
-              throw new Error("UI/Newsletter: user can't drop email")
+              await subscribe()
+              // subscription(email)
+              toast('Drop an email successfully')
+            } catch {
+              toast.error('Drop an email failed, server error')
             }
           }}
         >

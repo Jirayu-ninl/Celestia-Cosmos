@@ -1,6 +1,6 @@
 import { uuidv7 } from 'uuidv7'
 import { compare, hash } from 'bcryptjs'
-import cookie from 'cookie'
+import { serialize } from 'cookie'
 import type { signinInput, signupInput } from './schema'
 import type { Context } from '@backend/trpc/trpc.context'
 import { getErrorMessage } from '@nexel/nextjs/utils/server/error'
@@ -45,7 +45,7 @@ export const signin = async ({
 
     ctx.resHeaders.append(
       'Set-Cookie',
-      cookie.serialize(cookiePrefix + 'next-auth.session-token', sessionToken, {
+      serialize(cookiePrefix + 'next-auth.session-token', sessionToken, {
         httpOnly: true,
         secure: useSecureCookies,
         sameSite: 'lax',

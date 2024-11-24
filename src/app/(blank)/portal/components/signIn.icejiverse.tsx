@@ -1,18 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 import clsx from 'clsx'
 import { trpc } from '@trpc'
-import { form } from '@/utils'
+import { form } from '@/utils/view'
 
 const SignInIceJiVerse = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   // TODO: feat/auth: Remember me function (method: set session cookies expire time)
   const [remember_me, setRemember_me] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (window.location.hash === '#_=_') {
+      setIsLoading(true)
+    }
+  }, [window.location.hash, setIsLoading, isLoading])
 
   const { mutateAsync } = trpc.user.portal.signin.useMutation({
     onSuccess(data) {

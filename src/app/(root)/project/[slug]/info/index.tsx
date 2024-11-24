@@ -1,5 +1,5 @@
 import type { ProjectInfo as ProjectInfoType } from '@types'
-import { PROJECT } from '@/enums'
+import { PROJECT } from '@/enums/content'
 import { InlineGridInfo } from './info.inlineGrid'
 
 export interface ProjectInfoProps {

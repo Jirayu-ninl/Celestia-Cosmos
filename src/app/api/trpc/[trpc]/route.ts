@@ -1,6 +1,6 @@
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
 // import { env } from '@env'
-import { AppController } from '@backend/controllers'
+import { router } from '@backend/controllers'
 import { createTRPCContext } from '@backend/trpc/trpc.context'
 
 const handler = (request: Request) => {
@@ -11,7 +11,7 @@ const handler = (request: Request) => {
     endpoint: '/api/trpc',
     req: request,
     // res: response,
-    router: AppController.router,
+    router,
     createContext: createTRPCContext,
     onError:
       process.env.NODE_ENV === 'development'

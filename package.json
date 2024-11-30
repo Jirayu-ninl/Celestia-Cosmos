@@ -175,7 +175,6 @@
     "@pandacss/dev": "^0.48.0",
     "@playwright/test": "^1.49.0",
     "@types/bcryptjs": "^2.4.6",
-    "@types/cookie": "^1.0.0",
     "@types/envinfo": "^7.8.4",
     "@types/js-cookie": "^3.0.6",
     "@types/lodash-es": "^4.17.12",

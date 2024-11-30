@@ -7,7 +7,7 @@
     "eslint": "eslint --fix \"./src/**/**/**/**/*.{js,ts,jsx,tsx}\" --ext jsconfig.json",
     "prettier": "prettier --write \"./src/**/**/**/**/*.{js,ts,jsx,tsx}\"",
     "lint": "next lint",
-    "format": "yarn prettier && yarn eslint",
+    "format": "pnpm prettier && pnpm eslint",
     "pre:css": "panda codegen",
     "pre:db": "dotenv -- pnpm --filter @celestia/prisma db",
     "pre:gql": "pnpm --filter @celestia/gql pnpm:gql",
@@ -22,7 +22,9 @@
     "clean:build": "node scripts/clean.build",
     "clean:build:pkg": "node scripts/clean.pkg.build",
     "clean:node": "node scripts/clean.node",
-    "clean": "pnpm run \"/^clean:.*/\""
+    "clean": "pnpm run \"/^clean:.*/\"",
+    "yarn:pre:db" : "yarn db:generate:none && yarn db:push",
+    "yarn:deploy": "yarn yarn:pre:db && yarn build"
   },
   "workspaces": [
     "packages/*"

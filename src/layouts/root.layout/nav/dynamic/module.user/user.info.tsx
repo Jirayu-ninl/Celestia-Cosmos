@@ -1,4 +1,4 @@
-import type { Session } from '@types'
+import type { Session } from 'types'
 import { NAV_ACTION, CURSOR } from '@/store'
 import { Image } from '@components'
 

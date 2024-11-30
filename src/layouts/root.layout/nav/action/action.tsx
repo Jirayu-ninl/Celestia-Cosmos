@@ -1,4 +1,4 @@
-import type { Session, Providers } from '@types'
+import type { Session, Providers } from 'types'
 import { useMemo, memo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 // import { startCase } from 'lodash-es'

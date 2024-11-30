@@ -1,4 +1,4 @@
-import type { Session } from '@types'
+import type { Session } from 'types'
 // import { Fallback } from './app.fallback'
 import { ClearUserStore, SetUserStore } from './app.client'
 import { NavBar } from './nav'

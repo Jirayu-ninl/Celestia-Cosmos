@@ -1,4 +1,4 @@
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 import { POST } from '@/enums/content'
 import { ContentBlock } from './content'
 import { QuoteBlock } from './quote'

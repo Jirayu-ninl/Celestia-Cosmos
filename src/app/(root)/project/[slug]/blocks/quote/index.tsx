@@ -1,4 +1,4 @@
-import type { ProjectBlock } from '@types'
+import type { ProjectBlock } from 'types'
 import { sanitize } from 'isomorphic-dompurify'
 import { QuoteLeft, QuoteRight } from '@components/icons'
 

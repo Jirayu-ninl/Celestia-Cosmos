@@ -1,4 +1,4 @@
-import { Content, ImageContent, TextContent, RawContent } from '@types'
+import { Content, ImageContent, TextContent, RawContent } from 'types'
 import React from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
@@ -118,10 +118,7 @@ const renderContent = (content: Content | TextContent | ImageContent) => {
         )
       case 'block-quote':
         return (
-          <blockquote
-            className='border-l-quaternary-2 dark:border-l-primary-0 my-6 rounded-md border-4 border-y-white/0 border-r-white/0
-          bg-black/5 p-6 text-xl font-light dark:bg-black/40 lg:my-12 lg:text-2xl lg:leading-10'
-          >
+          <blockquote className='border-l-quaternary-2 dark:border-l-primary-0 my-6 rounded-md border-4 border-y-white/0 border-r-white/0 bg-black/5 p-6 text-xl font-light dark:bg-black/40 lg:my-12 lg:text-2xl lg:leading-10'>
             {children.map((child, index) => (
               <React.Fragment key={index}>
                 {renderContent(child)}

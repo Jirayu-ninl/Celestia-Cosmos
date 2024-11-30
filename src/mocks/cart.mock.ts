@@ -1,4 +1,4 @@
-import type { Cart } from '@types'
+import type { Cart } from 'types'
 
 export const CartMockData: Cart[] = [
   {

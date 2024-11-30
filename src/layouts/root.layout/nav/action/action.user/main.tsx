@@ -1,4 +1,4 @@
-import type { Session } from '@types'
+import type { Session } from 'types'
 import { useState } from 'react'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'

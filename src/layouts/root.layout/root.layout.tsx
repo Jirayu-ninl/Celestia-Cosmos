@@ -1,4 +1,4 @@
-import type { Session, Providers } from '@types'
+import type { Session, Providers } from 'types'
 import { NavBar, NavCanvas } from './nav'
 import { Footer } from './footer'
 

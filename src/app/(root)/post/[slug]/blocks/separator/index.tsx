@@ -1,4 +1,4 @@
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 import { POST } from '@/enums/content'
 
 interface SeparatorBlockProps {

@@ -1,4 +1,4 @@
-import type { Session } from '@types'
+import type { Session } from 'types'
 import { startCase } from 'lodash-es'
 import { NAV_ACTION, CURSOR } from '@/store'
 import { Image } from '@components'

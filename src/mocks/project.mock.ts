@@ -1,5 +1,5 @@
 // cSpell: disable
-import type { Project } from '@types'
+import type { Project } from 'types'
 // import { PROJECT } from '@/enums/content'
 
 export const MockProject: Project = {

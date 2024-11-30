@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Content, ImageContent, TextContent } from '@types'
+import { Content, ImageContent, TextContent } from 'types'
 import Image from 'next/image'
 import clsx from 'clsx'
 import { POST } from '@/enums/content'
@@ -100,10 +100,7 @@ const BlockComponents: BlockComponentsType = {
     </div>
   ),
   'block-quote': ({ block }) => (
-    <blockquote
-      className='border-l-quaternary-2 dark:border-l-primary-0 my-6 rounded-md border-4 border-y-white/0 border-r-white/0
-      bg-black/5 p-6 text-xl font-light dark:bg-black/40 lg:my-12 lg:text-2xl lg:leading-10'
-    >
+    <blockquote className='border-l-quaternary-2 dark:border-l-primary-0 my-6 rounded-md border-4 border-y-white/0 border-r-white/0 bg-black/5 p-6 text-xl font-light dark:bg-black/40 lg:my-12 lg:text-2xl lg:leading-10'>
       <Text block={block.children as TextContent[]} />
     </blockquote>
   ),

@@ -1,4 +1,4 @@
-import type { Cart as CartType } from '@types'
+import type { Cart as CartType } from 'types'
 import Image from 'next/image'
 
 export const CartItem = (item: CartType) => {
@@ -17,7 +17,7 @@ export const CartItem = (item: CartType) => {
             <div className='absolute h-full w-full bg-foreground/30' />
           )}
         </div>
-        <div className='pl-2 pointer-events-none'>
+        <div className='pointer-events-none pl-2'>
           <p className='font-bold'>
             {item.name.length > 38 ? item.name.slice(0, 38) + '...' : item.name}
           </p>

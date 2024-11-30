@@ -1,4 +1,4 @@
-import type { Notification, Cart } from '@types'
+import type { Notification, Cart } from 'types'
 import { UserPlan, UserRole, User as PrismaUser } from '@prisma/client'
 
 export type User =

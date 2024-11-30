@@ -1,4 +1,4 @@
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 
 export interface ImageBlockProps {
   image: PostBlock.ImageBlock

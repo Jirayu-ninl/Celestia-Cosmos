@@ -38,7 +38,8 @@
       "@env": ["global/env.mjs"],
       "@routes": ["global/config/routes"],
       "@trpc": ["backend/trpc/client"],
-      "@types": ["types"],
+      "types": ["types"],
+      "types/*": ["types/*"],
       "public/*": ["public/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types/*.d.ts"],

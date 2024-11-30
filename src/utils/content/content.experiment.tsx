@@ -1,4 +1,4 @@
-import { Content, ImageContent, TextContent, RawContent } from '@types'
+import { Content, ImageContent, TextContent, RawContent } from 'types'
 import React from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'

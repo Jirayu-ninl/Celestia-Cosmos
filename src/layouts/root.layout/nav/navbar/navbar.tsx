@@ -1,6 +1,6 @@
 'use client'
 
-import type { Session, Providers } from '@types'
+import type { Session, Providers } from 'types'
 import { useRef } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import { useShallow } from 'zustand/shallow'

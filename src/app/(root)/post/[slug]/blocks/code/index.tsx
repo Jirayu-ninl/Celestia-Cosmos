@@ -1,6 +1,6 @@
 'use client'
 
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 // import { POST } from '@/enums/content'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark, prism } from 'react-syntax-highlighter/dist/esm/styles/prism'

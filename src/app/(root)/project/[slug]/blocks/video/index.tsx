@@ -1,4 +1,4 @@
-import type { ProjectBlock } from '@types'
+import type { ProjectBlock } from 'types'
 
 interface VideoBlockProps {
   video: ProjectBlock.VideoBlock

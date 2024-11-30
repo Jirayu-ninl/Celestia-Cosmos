@@ -1,4 +1,4 @@
-import type { ProjectBlock } from '@types'
+import type { ProjectBlock } from 'types'
 import { PROJECT } from '@/enums/content'
 import { ContentBlock } from './content'
 import { ImageBlock } from './image'

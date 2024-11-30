@@ -1,4 +1,4 @@
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 import { sanitize } from 'isomorphic-dompurify'
 
 export const Richtext = ({ richtext }: { richtext: PostBlock.RichText }) => {

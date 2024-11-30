@@ -1,4 +1,4 @@
-import type { RelatedProject } from '@types'
+import type { RelatedProject } from 'types'
 // import Image from 'next/image'
 import { Image } from '@components'
 import Link from 'next/link'

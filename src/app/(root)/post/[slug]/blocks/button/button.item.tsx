@@ -1,4 +1,4 @@
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 import Link from 'next/link'
 // import { ButtonIcon } from './icon'
 import { ButtonIcons } from './icons'

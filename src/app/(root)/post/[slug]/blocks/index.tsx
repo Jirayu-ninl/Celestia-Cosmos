@@ -1,4 +1,4 @@
-import type { PostBlock } from '@types'
+import type { PostBlock } from 'types'
 import React from 'react'
 import { renderBlock } from './renderBlock'
 

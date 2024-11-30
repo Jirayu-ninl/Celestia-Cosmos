@@ -1,4 +1,4 @@
-import type { relatedPost } from '@types'
+import type { relatedPost } from 'types'
 import { Image } from '@components'
 import Link from 'next/link'
 

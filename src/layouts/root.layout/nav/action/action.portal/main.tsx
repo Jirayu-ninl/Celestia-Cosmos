@@ -1,4 +1,4 @@
-import type { Session, Providers } from '@types'
+import type { Session, Providers } from 'types'
 import { useState } from 'react'
 import clsx from 'clsx'
 import { useShallow } from 'zustand/shallow'

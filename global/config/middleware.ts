@@ -1,4 +1,4 @@
-import type { MiddlewareRouteConfig } from '@types'
+import type { MiddlewareRouteConfig } from 'types'
 import type { UserRole } from '@prisma/client'
 import { TIME } from '@/utils/time'
 

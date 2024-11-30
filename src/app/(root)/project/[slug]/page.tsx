@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { Metadata } from 'next'
-import type { GetProjectResult } from '@types'
+import type { GetProjectResult } from 'types'
 import { gql } from 'graphql-request'
 import * as FALLBACK from '@components/post/error'
 import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'

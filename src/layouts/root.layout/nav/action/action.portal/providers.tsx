@@ -1,4 +1,4 @@
-import type { Providers } from '@types'
+import type { Providers } from 'types'
 import type { Dispatch } from 'react'
 // import { useEffect } from 'react'
 // import { useRouter } from 'next/navigation'

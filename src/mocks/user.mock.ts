@@ -1,4 +1,4 @@
-import type { Session } from '@types'
+import type { Session } from 'types'
 
 export const UserMockData: Session = {
   user: {
@@ -10,7 +10,7 @@ export const UserMockData: Session = {
     email: 'admin@theiceji.com',
     image: '/page/about/Profile_Avatar@2x.png',
     balance: 169.98,
-    metadata: {}
+    metadata: {},
   },
-  expires: (new Date()).toISOString(),
+  expires: new Date().toISOString(),
 }

@@ -1,4 +1,4 @@
-import type { ProjectBlock } from '@types'
+import type { ProjectBlock } from 'types'
 import React from 'react'
 import { renderBlock } from './renderBlock'
 

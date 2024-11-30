@@ -1,4 +1,4 @@
-import type { ProjectInfo } from '@types'
+import type { ProjectInfo } from 'types'
 import { startCase } from 'lodash-es'
 import Link from 'next/link'
 

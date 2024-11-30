@@ -1,6 +1,6 @@
 'use client'
 
-import type { Session } from '@types'
+import type { Session } from 'types'
 import { useRef, useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'

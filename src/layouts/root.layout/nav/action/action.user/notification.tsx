@@ -1,4 +1,4 @@
-import type { Notification } from '@types'
+import type { Notification } from 'types'
 import Link from 'next/link'
 
 export const UserNotification = () => {

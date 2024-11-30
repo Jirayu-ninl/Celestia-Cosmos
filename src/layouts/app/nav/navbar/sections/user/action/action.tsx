@@ -1,6 +1,6 @@
 import type { Session } from 'next-auth'
 import { motion } from 'framer-motion'
-import { User } from '../../../../../../root.layout/nav/action/action.user'
+import { User } from '../../../../../../root/nav/action/action.user'
 
 interface UserActionProps {
   session: Session

@@ -1,3 +1,3 @@
 export { Wrapper } from './wrapper'
-export { RootLayout } from './root.layout'
-export { AppLayout } from './app.layout'
+export { RootLayout } from './root'
+export { AppLayout } from './app'

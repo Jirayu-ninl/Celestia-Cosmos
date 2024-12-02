@@ -2,10 +2,7 @@
 
 import { useUiState } from '@/store'
 import { useShallow } from 'zustand/shallow'
-import {
-  MoonStar as MoonStarIcon,
-  Sun as SunIcon,
-} from '@nexel/cosmos/assets/icons'
+import { MoonStar as MoonStarIcon, Sun as SunIcon } from '@cosmos/assets/icons'
 
 export const DarkModeSwitch = () => {
   const [_dark, _onToggleDark] = useUiState(

@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { StatsGl } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { useUiState, useAppState } from '@/store'
-import { useOptimization } from '@nexel/cosmos/gl/hooks'
+import { useOptimization } from '@cosmos/gl/hooks'
 import Scene from './scene'
 // import { useShallow } from 'zustand/shallow'
 

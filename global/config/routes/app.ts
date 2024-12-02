@@ -8,7 +8,7 @@ import {
   Chat,
   Folder,
   Bag,
-} from '@nexel/cosmos/assets/icons'
+} from '@cosmos/assets/icons'
 
 export enum APP_ROUTES {
   DASHBOARD = 'dashboard',

@@ -7,8 +7,8 @@ import {
   SoundOff as SoundOffIcon,
   MoonStar as MoonStarIcon,
   Sun as SunIcon,
-} from '@nexel/cosmos/assets/icons'
-import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/x.width'
+} from '@cosmos/assets/icons'
+import { DockItem } from '@cosmos/ui/dock/dockItem/x.width'
 
 interface SettingsSectionProps {
   _setCursor: (cursor: CURSOR | undefined) => void

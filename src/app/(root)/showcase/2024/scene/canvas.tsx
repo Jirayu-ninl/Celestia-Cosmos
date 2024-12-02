@@ -6,7 +6,7 @@ import { Canvas as C } from '@react-three/fiber'
 import { StatsGl } from '@react-three/drei'
 // import { useShallow } from 'zustand/shallow'
 import { useUiState, useAppState } from '@/store'
-import { useOptimization } from '@nexel/cosmos/gl/hooks'
+import { useOptimization } from '@cosmos/gl/hooks'
 import { Scene } from './scene'
 
 export const Canvas = () => {

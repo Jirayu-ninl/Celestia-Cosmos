@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Text } from '@react-three/drei'
 import { toast } from 'react-toastify'
-import { Send } from '@nexel/cosmos/assets/icons'
+import { Send } from '@cosmos/assets/icons'
 // import { trpc } from '@trpc'
 import { subscribeCall } from './contact.subscribeCall'
 

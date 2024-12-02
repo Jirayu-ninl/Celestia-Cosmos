@@ -4,7 +4,7 @@ import { ImageBlockProps } from './image.common'
 import { motion } from 'framer-motion'
 // import Image from 'next/image'
 import { Image } from '@components'
-import { useAnimateObjectWhenScroll } from '@nexel/cosmos/animations/hooks'
+import { useAnimateObjectWhenScroll } from '@cosmos/animations/hooks'
 
 export const OneImage: React.FC<ImageBlockProps> = ({ image, isPreview }) => {
   const img = image.images[0]

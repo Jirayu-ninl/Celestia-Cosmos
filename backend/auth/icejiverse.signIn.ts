@@ -2,8 +2,8 @@
 
 import { uuidv7 } from 'uuidv7'
 import { prisma } from '@backend/database'
-import { CredentialsSignIn } from '@nexel/nextjs/libs/auth/credentials'
-import { getErrorMessage } from '@nexel/nextjs/utils/server/error'
+import { CredentialsSignIn } from './credential'
+import { getErrorMessage } from '@core/utils/server/error'
 import { ErrorHandler } from '../services/monitoring'
 
 const SignIn: (c: { email: string; password: string }) => Promise<{

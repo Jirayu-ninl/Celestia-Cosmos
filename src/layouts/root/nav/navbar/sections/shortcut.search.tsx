@@ -1,4 +1,4 @@
-import { Search as Icon } from '@nexel/cosmos/assets/icons'
+import { Search as Icon } from '@cosmos/assets/icons'
 import { RiCommandFill } from 'react-icons/ri'
 
 interface SearchProps {}

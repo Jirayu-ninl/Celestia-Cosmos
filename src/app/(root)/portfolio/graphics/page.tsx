@@ -3,7 +3,7 @@
 import { useUiState, NAV_DYN_TYPE } from '@/store'
 import Header from './components/header'
 import TableOfContents from './components/tableOfContents'
-import { SmoothScroll, OnScrollFunctionProps } from '@nexel/cosmos/animations'
+import { SmoothScroll, OnScrollFunctionProps } from '@cosmos/animations'
 
 import Content from './contents'
 

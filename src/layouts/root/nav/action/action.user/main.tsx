@@ -6,7 +6,7 @@ import { useShallow } from 'zustand/shallow'
 import clsx from 'clsx'
 import { useUserState } from '@/store'
 import { Image } from '@components'
-import { LogOut } from '@nexel/cosmos/assets/icons'
+import { LogOut } from '@cosmos/assets/icons'
 import { UserMenu } from './user.menu'
 import { UserNotification } from './notification'
 export const User = ({ session }: { session: Session }) => {

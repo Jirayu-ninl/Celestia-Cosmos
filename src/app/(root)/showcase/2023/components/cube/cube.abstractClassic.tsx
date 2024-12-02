@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { Color, Vector2 } from 'three'
 import { useFrame } from '@react-three/fiber'
 import { RoundedBox } from '@react-three/drei'
-import { Color as ColorUtils } from '@nexel/cosmos/gl/utils'
+import { Color as ColorUtils } from '@cosmos/gl/utils'
 // import { theme } from '@global/config/defineConfig'
 
 import abstractVertShader from './shaders/abstract.v.glsl'

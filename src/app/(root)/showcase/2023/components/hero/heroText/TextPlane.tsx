@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 // import { Plane } from '@react-three/drei'
 import { ThreeEvent, useFrame } from '@react-three/fiber'
-import { DrawerText2d } from '@nexel/cosmos/gl/utils'
+import { DrawerText2d } from '@cosmos/gl/utils'
 
 type TextPlaneProps = {
   text: string

@@ -4,7 +4,7 @@ import {
   KernelSize,
   BlendFunction,
 } from 'postprocessing'
-import Effect from '@nexel/cosmos/gl/postprocessing'
+import Effect from '@cosmos/gl/postprocessing'
 
 export const PostProcessing = () => {
   const { flowMapPass } = Effect.FlowMap.Pass()

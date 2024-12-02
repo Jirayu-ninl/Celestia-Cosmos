@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { Locales } from 'types'
 import { gql } from 'graphql-request'
-import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'
+import { useFetchQL } from '@core/hooks/data'
 import { env } from '@env'
 import { FETCH } from '@/enums/server'
 import { PROJECT } from '@/enums/content'

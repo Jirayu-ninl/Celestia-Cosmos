@@ -3,7 +3,7 @@ import { useSearchParams } from 'next/navigation'
 import { useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
 import { State } from '@global/store'
-import { getInviewAnimationValue } from '@nexel/cosmos/animations'
+import { getInviewAnimationValue } from '@cosmos/animations'
 
 import { getNavSection } from './state.data'
 

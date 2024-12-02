@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { gql } from 'graphql-request'
 import { env } from '@env'
-import { useFetchQL } from '@nexel/nextjs/libs/hooks/data'
+import { useFetchQL } from '@core/hooks/data'
 
 type Project = {
   title: string

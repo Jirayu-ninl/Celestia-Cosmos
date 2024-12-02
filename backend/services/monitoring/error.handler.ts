@@ -1,6 +1,6 @@
 import { env } from '@env'
-import { serverLog } from '@nexel/nextjs/libs/log/log.server'
-import { captureToSentry } from '@nexel/nextjs/libs/log/sentry.capture'
+import { serverLog } from '@core/log/log.server'
+import { captureToSentry } from '@core/log/sentry.capture'
 
 const ErrorHandler = (e: any) => {
   captureToSentry(e, 'error')

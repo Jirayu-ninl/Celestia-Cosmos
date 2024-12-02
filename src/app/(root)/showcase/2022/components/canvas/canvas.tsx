@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation'
 import { Canvas as ThreeCanvas } from '@react-three/fiber'
 import { StatsGl } from '@react-three/drei'
 import { useAppState } from '@/store'
-import { useOptimization } from '@nexel/cosmos/gl/hooks'
+import { useOptimization } from '@cosmos/gl/hooks'
 import Scene from './scene'
 
 const Canvas = () => {

@@ -4,7 +4,7 @@ import {
   HueSaturation,
 } from '@react-three/postprocessing'
 import { KernelSize, BlendFunction } from 'postprocessing'
-import Effect from '@nexel/cosmos/gl/postprocessing'
+import Effect from '@cosmos/gl/postprocessing'
 
 const PostProcessing = () => {
   return (

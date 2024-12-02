@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text, useScroll } from '@react-three/drei'
-import { getInviewAnimationValue } from '@nexel/cosmos/animations'
+import { getInviewAnimationValue } from '@cosmos/animations'
 import { PassionData } from '@/contents/pages/home'
 
 const HTML = () => {

@@ -7,7 +7,7 @@ import {
   ScrollControls,
   Scroll,
 } from '@react-three/drei'
-import { Color as ColorUtils } from '@nexel/cosmos/gl/utils'
+import { Color as ColorUtils } from '@cosmos/gl/utils'
 import { getIsVertical } from './responsive'
 
 import Cube from './cube'

@@ -10,7 +10,7 @@ import { trpc } from '@trpc'
 import {
   email as emailValidator,
   password as passwordValidator,
-} from '@nexel/nextjs/utils/validator'
+} from '@core/utils/validator'
 import { form } from '@/utils/view'
 
 const SignUpIceJiVerse = ({ children }: { children: React.ReactNode }) => {

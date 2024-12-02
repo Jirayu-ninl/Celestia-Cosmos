@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { Text } from '@react-three/drei'
 // import { useShallow } from 'zustand/shallow'
 import { theme } from '@config'
-import { Color as ColorUtils } from '@nexel/cosmos/gl/utils'
+import { Color as ColorUtils } from '@cosmos/gl/utils'
 import { useUiState, CURSOR } from '@/store'
 
 const HTML = () => {

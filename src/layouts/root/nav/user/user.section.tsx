@@ -1,7 +1,7 @@
 import type { Session } from 'next-auth'
 import { motion } from 'framer-motion'
 import { NAV_ACTION, CURSOR } from '@/store'
-import { User as UserIcon } from '@nexel/cosmos/assets/icons'
+import { User as UserIcon } from '@cosmos/assets/icons'
 import { UserInfo } from './user.info'
 
 interface UserSectionProps {

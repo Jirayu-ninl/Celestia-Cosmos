@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import CustomShaderMaterial from 'three-custom-shader-material'
-import { Color as ColorUtils } from '@nexel/cosmos/gl/utils'
+import { Color as ColorUtils } from '@cosmos/gl/utils'
 
 import sVertex from './shaders/circleParticles.v.glsl'
 import sFragment from './shaders/circleParticles.f.glsl'

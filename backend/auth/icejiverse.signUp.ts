@@ -1,7 +1,7 @@
 'use server'
 
-import { CredentialsSignUp } from '@nexel/nextjs/libs/auth/credentials'
-import { getErrorMessage } from '@nexel/nextjs/utils/server/error'
+import { CredentialsSignUp } from './credential'
+import { getErrorMessage } from '@core/utils/server/error'
 import { ErrorHandler } from '../services/monitoring'
 
 const SignUp: (c: { email: string; password: string }) => Promise<{

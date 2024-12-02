@@ -8,7 +8,7 @@ import {
   Stars,
 } from '@react-three/drei'
 
-import { useResource } from '@nexel/cosmos/gl/hooks'
+import { useResource } from '@cosmos/gl/hooks'
 import { theme } from '@config'
 import Instances from './instances'
 

@@ -4,7 +4,7 @@ import { MarqueeBlockProps } from './marquee.common'
 import { Fragment } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import { useAnimateObjectWhenScroll } from '@nexel/cosmos/animations/hooks'
+import { useAnimateObjectWhenScroll } from '@cosmos/animations/hooks'
 
 export const ScrollingMarquee: React.FC<MarqueeBlockProps> = ({ marquee }) => {
   const marqueeText = [...marquee.word, ...marquee.word]

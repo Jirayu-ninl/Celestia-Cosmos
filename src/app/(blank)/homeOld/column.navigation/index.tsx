@@ -1,7 +1,7 @@
 'use client'
 
 import { useShallow } from 'zustand/shallow'
-import { Moon } from '@nexel/cosmos/assets/icons/moon'
+import { Moon } from '@cosmos/assets/icons/moon'
 import { useUiState } from '@/store'
 import { NavPage } from './nav.page'
 import { NavApp } from './nav.app'

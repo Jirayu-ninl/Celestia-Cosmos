@@ -8,7 +8,7 @@ import { trpc } from '@trpc'
 import {
   email as emailValidator,
   password as passwordValidator,
-} from '@nexel/nextjs/utils/validator'
+} from '@core/utils/validator'
 import { form } from '@/utils/view'
 
 export const SignUpComponent = ({

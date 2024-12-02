@@ -1,5 +1,5 @@
 import { type Dispatch, useEffect } from 'react'
-import { useKeyPress } from '@nexel/nextjs/libs/hooks/events/useKeyPress'
+import { useKeyPress } from '@core/hooks/events/useKeyPress'
 
 const Immersive = (p: { glow: boolean; setGlow: Dispatch<boolean> }) => {
   const pressG = useKeyPress('g')

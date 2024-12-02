@@ -7,7 +7,7 @@ import {
   ShareModule,
   External_linkModule,
 } from './modules'
-import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/x.width'
+import { DockItem } from '@cosmos/ui/dock/dockItem/x.width'
 
 interface renderModuleProps {
   module: DynamicNavModule

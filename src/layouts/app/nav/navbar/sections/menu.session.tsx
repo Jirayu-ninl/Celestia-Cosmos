@@ -2,7 +2,7 @@ import type { MotionValue } from 'framer-motion'
 import { memo } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
+import { DockItem } from '@cosmos/ui/dock/dockItem/y.opacity'
 import { appRoutes, APP_ROUTES } from '@routes'
 
 interface MenuWithSessionSectionProps {

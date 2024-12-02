@@ -8,9 +8,9 @@ import {
   Close as CloseIcon,
   User as UserIcon,
   Cart as CartIcon,
-} from '@nexel/cosmos/assets/icons'
+} from '@cosmos/assets/icons'
 import { Search } from './shortcut.search'
-import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/x.width'
+import { DockItem } from '@cosmos/ui/dock/dockItem/x.width'
 
 interface ShortcutSectionProps {
   _navAction: NAV_ACTION | undefined

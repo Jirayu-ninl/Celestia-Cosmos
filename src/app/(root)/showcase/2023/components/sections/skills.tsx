@@ -2,7 +2,7 @@ import { useRef, type RefObject } from 'react'
 import { MathUtils, type Mesh } from 'three'
 import { useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
-import { getInviewAnimationValue } from '@nexel/cosmos/animations'
+import { getInviewAnimationValue } from '@cosmos/animations'
 
 import { CircleParticles } from './skills.circleParticles'
 import { SkillsFrontendData, SkillsBackendData } from '@/contents/pages/home'

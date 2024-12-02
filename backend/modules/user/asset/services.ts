@@ -1,6 +1,6 @@
 import type { addAssetInput } from './schema'
 import type { Context } from '@backend/trpc/trpc.context'
-import { trpcResponse } from 'packages/nextjs/utils/server/trpc'
+import { trpcResponse } from '@core/utils/server/trpc'
 import { sessionVerify } from '@backend/utils/session'
 
 export const addAsset = async ({

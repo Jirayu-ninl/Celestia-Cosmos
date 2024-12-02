@@ -1,6 +1,6 @@
 import { Session } from 'next-auth'
 import { prisma } from '@backend/database'
-import { trpcResponse } from 'packages/nextjs/utils/server/trpc.response'
+import { trpcResponse } from '@core/utils/server/trpc.response'
 
 export const sessionVerify = async (session: Session | null) => {
   if (!session || !session.user) {

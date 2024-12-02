@@ -2,7 +2,7 @@
 'use client'
 
 // import { useShallow } from 'zustand/shallow'
-import { SmoothScroll, OnScrollFunctionProps } from '@nexel/cosmos/animations'
+import { SmoothScroll, OnScrollFunctionProps } from '@cosmos/animations'
 import { useUiState, NAV_DYN_TYPE } from '@/store'
 import { TypeA as Card } from '@components/post/card'
 

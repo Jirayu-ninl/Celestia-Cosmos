@@ -1,7 +1,7 @@
 import type { MotionValue } from 'framer-motion'
 import { memo } from 'react'
 import { Plus } from '@components/icons'
-import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
+import { DockItem } from '@cosmos/ui/dock/dockItem/y.opacity'
 
 interface MenuSectionProps {
   mouseY: MotionValue<number>

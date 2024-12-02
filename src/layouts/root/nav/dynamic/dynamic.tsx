@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import clsx from 'clsx'
 // import { useShallow } from 'zustand/shallow'
 import { useUiState, CURSOR } from '@/store'
-// import { Filter as FilterIcon } from '@nexel/cosmos/assets/icons'
+// import { Filter as FilterIcon } from '@cosmos/assets/icons'
 import { RenderModule } from './renderModule'
 
 interface DynamicNavModulesProps {

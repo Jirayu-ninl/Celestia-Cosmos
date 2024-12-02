@@ -3,8 +3,8 @@ import type { MotionValue } from 'framer-motion'
 import type { Dispatch, SetStateAction } from 'react'
 import { memo } from 'react'
 import Link from 'next/link'
-import { DockItem } from '@nexel/cosmos/ui/dock/dockItem/y.opacity'
-import { User as UserSvg } from '@nexel/cosmos/assets/icons'
+import { DockItem } from '@cosmos/ui/dock/dockItem/y.opacity'
+import { User as UserSvg } from '@cosmos/assets/icons'
 import { Image } from '@components'
 
 interface UserIconProps {

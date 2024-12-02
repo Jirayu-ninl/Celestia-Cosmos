@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useUserState } from '@/store'
 // import { useShallow } from 'zustand/shallow'
-import { Icon } from '@nexel/cosmos/assets'
+import { Icon } from '@cosmos/assets'
 import { CartItem } from './cart.item'
 
 export const Cart = () => {

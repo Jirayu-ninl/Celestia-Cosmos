@@ -1,5 +1,5 @@
 import type { ScrollControlsState } from '@react-three/drei'
-import { getInviewAnimationValue } from '@nexel/cosmos/animations'
+import { getInviewAnimationValue } from '@cosmos/animations'
 import { getCubeState } from './cube.state.date'
 
 export const setTheCubePositionX = (

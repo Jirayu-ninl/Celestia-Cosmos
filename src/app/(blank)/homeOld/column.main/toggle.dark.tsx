@@ -1,7 +1,7 @@
 'use client'
 
 import { useUiState } from '@/store'
-import { Moon } from '@nexel/cosmos/assets/icons/moon'
+import { Moon } from '@cosmos/assets/icons/moon'
 import { useShallow } from 'zustand/shallow'
 
 export const ToggleDark = () => {

@@ -3,12 +3,12 @@ import * as THREE from 'three'
 import { Plane } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
-import { Color as ColorUtils } from '@nexel/cosmos/gl/utils'
+import { Color as ColorUtils } from '@cosmos/gl/utils'
 // import { theme } from '@global/config/defineConfig'
 
 import backgroundVertShader from './shaders/background.v.glsl'
 import backgroundFragShader from './shaders/background.f.glsl'
-import cpNoise21 from '@nexel/cosmos/gl/glsl/noise/cpNoise21.glsl'
+import cpNoise21 from '@cosmos/gl/glsl/noise/cpNoise21.glsl'
 
 const Background = ({ _dark }: { _dark: boolean }) => {
   const shader: THREE.ShaderMaterialParameters = useMemo(

@@ -1,7 +1,7 @@
 import {
   defineConfig as setAnimationConfig,
   defineStaggerConfig as setAnimationStaggerConfig,
-} from '@nexel/cosmos/animations/config'
+} from '@cosmos/animations/config'
 
 const WrongCurve: number[] = [0.43, 0.13, 0.23, 0.96]
 

@@ -1,4 +1,4 @@
-import { Toast } from '@nexel/nextjs/views/module.toast'
+import { Toast } from '@core/view/toast'
 import { CreateProgress } from './nprogress'
 import { theme } from '@config'
 import { Modal } from './modal'

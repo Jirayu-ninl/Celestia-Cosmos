@@ -1,6 +1,6 @@
 import type { Context } from '@backend/trpc/trpc.context'
-import { getErrorMessage } from '@nexel/nextjs/utils/server/error'
-import { trpcResponse } from '@nexel/nextjs/utils/server/trpc'
+import { getErrorMessage } from '@core/utils/server/error'
+import { trpcResponse } from '@core/utils/server/trpc'
 import { getPosts, getProjects, staticUrls } from '@/utils/sitemap'
 
 export const getSearchIndex = async ({ ctx }: { ctx: Context }) => {

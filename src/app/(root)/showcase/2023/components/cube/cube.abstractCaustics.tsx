@@ -4,7 +4,7 @@ import { Color, MeshStandardMaterial } from 'three'
 import { useFrame } from '@react-three/fiber'
 import { RoundedBox, useScroll } from '@react-three/drei'
 import CSM from 'three-custom-shader-material'
-import { getInviewAnimationValue } from '@nexel/cosmos/animations'
+import { getInviewAnimationValue } from '@cosmos/animations'
 import { getCubeState } from './cube.state.date'
 
 import frag from './shaders/cube.abstract.f.glsl'

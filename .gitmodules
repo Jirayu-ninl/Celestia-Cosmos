@@ -1,9 +1,6 @@
-[submodule "packages/prisma"]
-	path = packages/prisma
-	url = https://github.com/Jirayu-ninl/Celestia-Prisma.git
-[submodule "packages/cosmos"]
-	path = packages/cosmos
-	url = https://github.com/Nexel-Lab/cosmos.git
 [submodule "packages/core"]
 	path = packages/core
 	url = https://github.com/Nexel-Lab/Arch-Core
+[submodule "packages/prisma"]
+	path = packages/prisma
+	url = https://github.com/Jirayu-ninl/Celestia-Prisma.git

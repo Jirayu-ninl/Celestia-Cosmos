@@ -4,3 +4,9 @@
 [submodule "packages/prisma"]
 	path = packages/prisma
 	url = https://github.com/Jirayu-ninl/Celestia-Prisma.git
+[submodule "packages/cosmos"]
+	path = packages/cosmos
+	url = https://github.com/Jirayu-ninl/Celestia-Libs-Cosmos.git
+[submodule "packages/nexus"]
+	path = packages/nexus
+	url = https://github.com/Jirayu-ninl/Celestia-Libs-Nexus.git

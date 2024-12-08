@@ -61,4 +61,6 @@ export const serverSchema = {
   STRIPE_WEBHOOK_SECRET: z.string(),
   STRIPE_DONATE_ID: z.string(),
   STRIPE_METADATA_KEY: z.string(),
+  // ** WEB3
+  ALCHEMY_API: z.string(),
 }

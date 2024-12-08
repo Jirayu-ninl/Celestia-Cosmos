@@ -40,7 +40,8 @@
       "types/*": ["types/*"],
       "public/*": ["public/*"],
       "@core/*": ["packages/core/*"],
-      "@cosmos/*": ["packages/cosmos/*"]
+      "@cosmos/*": ["packages/cosmos/*"],
+      "@nexus/*": ["packages/nexus/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types/*.d.ts"],
     "target": "ES2017"

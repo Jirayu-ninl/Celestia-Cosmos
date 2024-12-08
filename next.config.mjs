@@ -45,47 +45,58 @@ const appExport = process.env.EXPORT !== undefined &&
 
 const nextConfig = {
   webpack: (config, { webpack, isServer }) => {
-    config.plugins.push(
-      new webpack.ProvidePlugin({
-        React: 'react',
-      }),
-    )
-
-    config.module.rules.push({
-      test: /\.(ogg|mp3|wav|mpe?g)$/i,
-      exclude: config.exclude,
-      use: [
-        {
-          loader: require.resolve('url-loader'),
-          options: {
-            limit: config.inlineImageLimit,
-            fallback: require.resolve('file-loader'),
-            publicPath: `${config.assetPrefix}/_next/static/images/`,
-            outputPath: `${isServer ? '../' : ''}static/images/`,
-            name: '[name]-[hash].[ext]',
-            esModule: config.esModule || false,
-          },
-        },
+    return {
+      ...config,
+      plugins: [
+        ...config.plugins,
+        new webpack.ProvidePlugin({
+          React: 'react',
+        }),
       ],
-    })
-
-    config.module.rules.push({
-      test: /\.mp4$/,
-      use: ['file-loader'],
-    })
-
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag|ps)$/,
-      exclude: /node_modules/,
-      use: ['glslify-import-loader', 'raw-loader', 'glslify-loader'],
-    })
-    // config.module.rules.push({
-    //   test: /\.hlsl$/i,
-    //   exclude: /node_modules/,
-    //   use: ['@gdgt/hlsl-loader'],
-    // })
-
-    return config
+      module: {
+        ...config.module,
+        rules: [
+          ...config.module.rules,
+          {
+            test: /\.(ogg|mp3|wav|mpe?g)$/i,
+            exclude: config.exclude,
+            use: [
+              {
+                loader: require.resolve('url-loader'),
+                options: {
+                  limit: config.inlineImageLimit,
+                  fallback: require.resolve('file-loader'),
+                  publicPath: `${config.assetPrefix}/_next/static/images/`,
+                  outputPath: `${isServer ? '../' : ''}static/images/`,
+                  name: '[name]-[hash].[ext]',
+                  esModule: config.esModule || false,
+                },
+              },
+            ],
+          },
+          {
+            test: /\.mp4$/,
+            use: ['file-loader'],
+          },
+          {
+            test: /\.(glsl|vs|fs|vert|frag|ps)$/,
+            exclude: /node_modules/,
+            use: ['glslify-import-loader', 'raw-loader', 'glslify-loader'],
+          },
+          // {
+          //   test: /\.hlsl$/i,
+          //   exclude: /node_modules/,
+          //   use: ['@gdgt/hlsl-loader'],
+          // }
+        ],
+      },
+      externals: [
+        ...(config.externals || []),
+        'pino-pretty',
+        'lokijs',
+        'encoding',
+      ],
+    }
   },
   async headers() {
     const headers = [

@@ -48,13 +48,20 @@ function Client(p: { session: Session | null }): JSX.Element {
     <>
       <h6 className='mb-2 text-xl'>Client:</h6>
       <div className='w-full space-y-1 rounded-md bg-foreground/5 p-4 text-center'>
-        <p>
-          {clientQuery.isLoading
-            ? 'Loading..'
-            : clientQuery.data
-              ? clientQuery.data.message
-              : 'Client query not working'}
-        </p>
+        {clientQuery.isLoading ? (
+          <p>Loading..</p>
+        ) : clientQuery.data ? (
+          <p>
+            Client query is{' '}
+            <span className='bg-green-500/10 px-2 text-green-500'>working</span>
+          </p>
+        ) : (
+          <p>
+            'Client query{' '}
+            <span className='bg-red-500/10 px-2 text-red-500'>not working</span>
+          </p>
+        )}
+
         <form onSubmit={onTestMutation}>
           <input
             type='text'
@@ -67,7 +74,18 @@ function Client(p: { session: Session | null }): JSX.Element {
       </div>
       <h6 className='mb-2 mt-6 text-xl'>Server:</h6>
       <div className='w-full space-y-1 rounded-md bg-foreground/5 p-4 text-center'>
-        <p>{trpcServerData ? trpcServerData : 'Loading..'}</p>
+        <p>
+          {trpcServerData ? (
+            <p>
+              Server caller is{' '}
+              <span className='bg-green-500/10 px-2 text-green-500'>
+                working
+              </span>
+            </p>
+          ) : (
+            'Loading..'
+          )}
+        </p>
       </div>
     </>
   )

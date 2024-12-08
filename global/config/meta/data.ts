@@ -1,7 +1,8 @@
 export const metadataData = {
-  appName: 'TheIceJI Cosmos',
-  title: 'TheIceJi | Where the dreams come true',
+  appName: 'TheIceJi Celestia',
+  title: 'TheIceJi | Your Universe of Digital Possibilities',
   url: 'https://theiceji.com',
+  tagline: 'Your Universe of Digital Possibilities',
   description:
     "I'm Jirayu Ninlapun (TheIceJi), a Creative Developer with a passion for pushing the boundaries of web technology. My expertise lies in WebGL, GLSL, and 3D development, and I thrive on creating immersive and visually stunning experiences. With a strong background in front-end development and NextJS, I excel at crafting engaging web animations that captivate users.",
   coverImg: '/og.jpg',

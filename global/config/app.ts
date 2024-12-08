@@ -1,5 +1,5 @@
 export const app = {
-  NAME: 'TheIceJi Cosmos',
+  NAME: 'TheIceJi Celestia',
   VERSION: '2024.11.2502',
   UPDATE_DATE: 'Nov 25, 2024',
   SENTRY: {

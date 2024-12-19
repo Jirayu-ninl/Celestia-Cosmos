@@ -60,6 +60,7 @@
     "@emotion/react": "^11.13.5",
     "@hono/sentry": "^1.2.0",
     "@hono/trpc-server": "^0.3.4",
+    "@hono/zod-validator": "^0.4.2",
     "@juggle/resize-observer": "^3.4.0",
     "@million/lint": "1.0.13",
     "@next/eslint-plugin-next": "^15.0.3",
